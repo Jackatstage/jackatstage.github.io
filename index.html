@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jack (Erfeng) Jiang — Saxophonist</title>
-<meta name="description" content="Jack (Erfeng) Jiang — Saxophonist. University of Illinois Urbana-Champaign, Music Performance + Computer Science minor.">
+<meta name="description" content="Jack (Erfeng) Jiang — Classical saxophonist. University of Illinois Urbana-Champaign, Music Performance + Computer Science minor.">
 <meta name="color-scheme" content="light dark">
 
 <!-- Open Graph / link previews. Site address: https://jackatstage.github.io -->
@@ -17,170 +17,232 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- Favicon: inline SVG, no file needed -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a0611a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-weight='700' text-anchor='middle' fill='%23ffffff'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2394590C'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='800' text-anchor='middle' fill='%23ffffff'%3EJ%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
 
 <style>
   :root {
-    --bg: #faf8f4;
-    --surface: #ffffff;
-    --text: #1b1a17;
-    --muted: #5d5850;
-    --line: #e4dfd6;
-    --accent: #9a5a12;
-    --accent-soft: #f3e6d4;
-    --ph-bg: #fff1b8;
-    --ph-fg: #5a4300;
-    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --bg: #F6F5F2;
+    --surface: #FFFFFF;
+    --sunk: #F1EEE8;
+    --text: #15161A;
+    --muted: #5F5C57;
+    --faint: #8A867F;
+    --line: #E3E0DA;
+    --line-2: #D6D2CB;
+    --dash: #CFCAC2;
+    --accent: #94590C;
+    --accent-hover: #6E4008;
+    --on-accent: #FFFFFF;
+    --ph-fg: #7A4A00;
+    --ph-bg: rgba(233, 180, 76, 0.16);
+    --ph-line: rgba(148, 89, 12, 0.45);
+    --player: #1A1B1F;
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #131210;
-      --surface: #1c1a17;
-      --text: #ece7df;
-      --muted: #a9a297;
-      --line: #2f2c27;
-      --accent: #e3a957;
-      --accent-soft: #3a2c19;
-      --ph-bg: #4a3b00;
-      --ph-fg: #ffe792;
+      --bg: #0D0E12;
+      --surface: #16181E;
+      --sunk: #1F222A;
+      --text: #F3EFE7;
+      --muted: #A4A09A;
+      --faint: #6E6A64;
+      --line: #262932;
+      --line-2: #2E313B;
+      --dash: #3A3D47;
+      --accent: #E9B44C;
+      --accent-hover: #F6D58E;
+      --on-accent: #0D0E12;
+      --ph-fg: #F2CF86;
+      --ph-bg: rgba(233, 180, 76, 0.10);
+      --ph-line: rgba(233, 180, 76, 0.45);
+      --player: #08090C;
     }
   }
 
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 1.125rem/1.65 var(--sans);
-  }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 1.125rem/1.65 var(--sans); }
   img { max-width: 100%; height: auto; display: block; }
-  a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  a { color: var(--accent); text-underline-offset: 0.18em; }
+  a:hover { color: var(--accent-hover); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); margin: 0; }
+  ul, ol, dl, dd { margin: 0; padding: 0; }
+  ul, ol { list-style: none; }
 
-  .skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: var(--bg); padding: .5rem 1rem; z-index: 10; }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: var(--on-accent); padding: .5rem 1rem; z-index: 10; }
   .skip:focus { left: 1rem; top: 1rem; }
+  .wrap { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 48rem) { .wrap { padding: 0 2rem; } }
 
-  .wrap { width: 100%; max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
-  @media (min-width: 48rem) { .wrap { padding: 0 2.5rem; } }
-
-  /* Placeholders: bright so nothing unfinished slips through */
+  /* Placeholders: visible on purpose, so nothing unfinished slips through */
   .ph {
-    background: var(--ph-bg); color: var(--ph-fg);
-    font: 600 0.85em/1.5 var(--mono);
-    padding: 0.05em 0.35em; border-radius: 4px;
+    font: 500 .8em/1.6 var(--mono); color: var(--ph-fg);
+    background: var(--ph-bg); border: 1px dashed var(--ph-line); border-radius: 6px; padding: .05em .4em;
     box-decoration-break: clone; -webkit-box-decoration-break: clone;
   }
 
-  /* Header / nav */
+  /* Header */
   .site-header { border-bottom: 1px solid var(--line); }
-  .site-header .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; justify-content: space-between; padding-top: 1rem; padding-bottom: 1rem; }
-  .brand { font: 700 1rem/1 var(--serif); color: var(--text); text-decoration: none; letter-spacing: .01em; }
-  .site-nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; list-style: none; margin: 0; padding: 0; font-size: .95rem; }
+  .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 2rem; padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  .brand { display: flex; align-items: center; gap: .75rem; color: var(--text); text-decoration: none; font: 700 1.1rem/1 var(--display); }
+  .brand-mark { width: 2rem; height: 2rem; border-radius: .55rem; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-weight: 800; }
+  .site-nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.75rem; font-size: .95rem; }
   .site-nav a { color: var(--muted); text-decoration: none; }
   .site-nav a:hover { color: var(--text); }
 
   /* Hero */
-  .hero { padding: 4.5rem 0 4rem; }
-  @media (min-width: 48rem) { .hero { padding: 7rem 0 6rem; } }
-  .eyebrow { font: 600 .8rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1.25rem; }
-  h1 { font: 700 clamp(2.6rem, 9vw, 5.5rem)/1.02 var(--serif); letter-spacing: -0.02em; margin: 0; }
-  h1 .alt { color: var(--muted); font-weight: 400; }
-  .subtitle { font-size: clamp(1.1rem, 2.4vw, 1.4rem); color: var(--muted); margin: 1.5rem 0 0; max-width: 40rem; }
-  .subtitle .sep { color: var(--accent); padding: 0 .35em; }
-  .lede { font: 400 clamp(1.25rem, 2.8vw, 1.6rem)/1.45 var(--serif); margin: 2rem 0 0; max-width: 42rem; }
-  .links { display: flex; flex-wrap: wrap; gap: .75rem; list-style: none; padding: 0; margin: 2.5rem 0 0; }
-  .links a {
-    display: inline-block; padding: .55rem 1.1rem; border: 1px solid var(--line); border-radius: 999px;
-    color: var(--text); text-decoration: none; font-size: 1rem; background: var(--surface);
+  .hero { padding: 5rem 0 3rem; }
+  @media (min-width: 48rem) { .hero { padding: 7rem 0 4rem; } }
+  .eyebrow { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.75rem; font: 600 .8rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+  .eyebrow::before { content: ""; width: 2.5rem; height: 1px; background: var(--accent); flex: none; }
+  h1 { font-weight: 800; font-size: clamp(3.4rem, 10vw, 9.25rem); line-height: .92; letter-spacing: -.045em; }
+  h1 .alt { color: var(--faint); font-weight: 500; }
+  .hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 2.5rem 4rem; margin-top: 3.5rem; }
+  .hero-text { flex: 1 1 32rem; min-width: 0; }
+  .subtitle { margin: 0; font-size: 1.25rem; color: var(--muted); max-width: 40rem; }
+  .subtitle .sep { color: var(--accent); padding: 0 .3em; }
+  .lede { margin: 1.75rem 0 0; font: 500 clamp(1.3rem, 2.6vw, 1.75rem)/1.4 var(--display); max-width: 45rem; }
+  .pills { display: flex; flex-wrap: wrap; gap: .625rem; }
+  .pill {
+    display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: 0 1.15rem;
+    border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface);
+    color: var(--text); text-decoration: none; font-size: .95rem; font-weight: 500;
   }
-  .links a:hover { border-color: var(--accent); color: var(--accent); }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+  .pill.solid:hover { opacity: .9; color: var(--on-accent); }
+  .pill svg { width: .9rem; height: .9rem; }
+
+  .staff { display: block; width: 100%; height: 6rem; }
+  .staff .lines { stroke: var(--line); }
+  .staff .notes { fill: var(--dash); }
+  .staff .lit { fill: var(--accent); }
 
   /* Sections */
-  section { padding: 4rem 0; border-top: 1px solid var(--line); }
-  @media (min-width: 48rem) { section { padding: 6rem 0; } }
-  .section-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.5rem; }
-  .section-head .num { font: 600 .85rem/1 var(--mono); color: var(--accent); }
-  h2 { font: 700 clamp(1.9rem, 5vw, 3rem)/1.1 var(--serif); letter-spacing: -0.015em; margin: 0; }
-  h3 { font: 700 clamp(1.45rem, 3.6vw, 2rem)/1.2 var(--serif); margin: 0; letter-spacing: -0.01em; }
-  h4 { font: 600 .8rem/1.3 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 .75rem; }
+  section { padding-top: 6rem; }
+  @media (min-width: 48rem) { section { padding-top: 8rem; } }
+  .sec-num { font: 500 .8rem/1 var(--mono); letter-spacing: .12em; color: var(--muted); }
+  h2 { margin-top: .75rem; font-weight: 800; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -.035em; }
+  .side-layout { display: flex; flex-wrap: wrap; gap: 2.5rem 4rem; }
+  .side-layout > .side { flex: 1 1 18rem; min-width: 0; }
+  .side-layout > .main { flex: 2 1 36rem; min-width: 0; }
 
-  /* Project cards */
-  .project { padding: 2.5rem 0; border-top: 1px solid var(--line); }
-  .project:first-of-type { border-top: 0; padding-top: 0; }
-  .project-head { display: grid; gap: .5rem; margin-bottom: 1.5rem; }
-  .project-index { font: 600 .85rem/1 var(--mono); color: var(--accent); }
-  .project-kicker { color: var(--muted); margin: 0; font-size: 1.05rem; }
-  .facts { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .35rem; font-size: 1rem; }
-  .facts li { color: var(--muted); }
-  .facts strong { color: var(--text); font-weight: 600; }
+  /* About */
+  .about-text { margin: 0; font: 500 clamp(1.3rem, 2.6vw, 1.9rem)/1.45 var(--display); letter-spacing: -.01em; }
+  .focus { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .focus li { flex: 1 1 12rem; background: var(--surface); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+  .focus svg { width: 1.6rem; height: 1.6rem; stroke: var(--accent); }
+  .focus span { font: 700 1.35rem/1.2 var(--display); letter-spacing: -.01em; }
 
-  dl.fields { display: grid; gap: 1.25rem; margin: 0; }
-  dl.fields > div { display: grid; gap: .25rem; }
-  @media (min-width: 48rem) {
-    dl.fields > div { grid-template-columns: 11rem 1fr; gap: 1.5rem; }
-  }
-  dl.fields dt { font: 600 .8rem/1.9 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-  dl.fields dd { margin: 0; max-width: 42rem; }
-  dl.fields ul { margin: 0; padding-left: 1.1rem; }
+  /* Work */
+  .work-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+  .work-head .note { font: 500 .8rem/1 var(--mono); letter-spacing: .12em; color: var(--muted); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1.75rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.4rem; min-width: 0; }
+  @media (min-width: 48rem) { .card { padding: 2.5rem; } }
+  .card.split { flex-direction: row; flex-wrap: wrap; gap: 2.5rem 3rem; }
+  .card.split > .col { flex: 1 1 24rem; min-width: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+  .card.split > .col.wide { flex: 1.3 1 30rem; gap: .9rem; }
+  .card-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
+  .card-grid > .card { flex: 1 1 30rem; }
+  .card-grid > .card.full { flex-basis: 100%; }
+  .kicker { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; font: 500 .8rem/1.3 var(--mono); letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+  .kicker b { color: var(--accent); font-weight: 600; }
+  .kicker .ph { text-transform: none; letter-spacing: 0; }
+  h3 { font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.15rem); line-height: 1.1; letter-spacing: -.025em; }
+  .card.feature h3 { font-size: clamp(2rem, 4vw, 2.75rem); }
+  .sub { margin: .5rem 0 0; color: var(--muted); }
+  .awards { display: flex; flex-direction: column; gap: .6rem; }
+  .awards li { display: flex; gap: .75rem; align-items: flex-start; }
+  .awards svg { flex: none; width: 1.25rem; height: 1.25rem; margin-top: .25rem; stroke: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chip { display: inline-flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding: .35rem .75rem; border-radius: .5rem; background: var(--sunk); font-size: .9rem; }
+  .chip .k { color: var(--muted); }
+  .tag { padding: .35rem .75rem; border-radius: 999px; border: 1px solid var(--line-2); font-size: .9rem; }
+  .fields { display: flex; flex-wrap: wrap; gap: 1.1rem 1.75rem; }
+  .fields > div { flex: 1 1 12.5rem; }
+  .fields dt { font: 500 .75rem/1.5 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; }
+  .rows { border-top: 1px solid var(--line); }
+  .rows li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 3.25rem; padding: .5rem 0; border-bottom: 1px solid var(--line); }
+  .rows a { flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: var(--text); text-decoration: none; }
+  .rows a:hover { color: var(--accent); }
+  .rows .r { font: 500 .85rem/1.4 var(--mono); color: var(--muted); }
+  .repo { flex: 1 1 13rem; display: flex; align-items: center; gap: .75rem; min-height: 4rem; padding: 0 1.1rem; border-radius: .9rem; background: var(--sunk); color: var(--text); text-decoration: none; font: 500 .9rem/1.3 var(--mono); }
+  .repo svg { width: 1.25rem; height: 1.25rem; stroke: var(--accent); flex: none; }
+  .repo:hover { color: var(--accent); }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: auto; }
+  .divider { display: flex; align-items: center; gap: 1rem; margin: 4rem 0 2rem; font: 600 .8rem/1 var(--mono); letter-spacing: .14em; color: var(--accent); }
+  .divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
   /* Media */
-  .media-grid { display: grid; gap: 1rem; margin-top: 1.75rem; }
-  @media (min-width: 40rem) { .media-grid.cols-2 { grid-template-columns: 1fr 1fr; } .media-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+  .media-2 { display: grid; gap: .9rem; }
+  @media (min-width: 36rem) { .media-2 { grid-template-columns: 1fr 1fr; } }
+  .media-label { font: 600 .95rem/1.3 var(--sans); margin: 0 0 .5rem; }
   figure { margin: 0; }
-  figure img { width: 100%; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+  figure img { width: 100%; border-radius: 1rem; border: 1px solid var(--line); background: var(--sunk); }
   figure.shot img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
   figure.page img { aspect-ratio: 8.5 / 11; object-fit: cover; object-position: top; }
-  figcaption { font-size: .9rem; color: var(--muted); margin-top: .5rem; }
+  figcaption { font-size: .85rem; color: var(--muted); margin-top: .5rem; }
   figure.missing img { display: none; }
   figure.missing::before {
-    content: "Missing: " attr(data-file);
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    min-height: 10rem; padding: 1rem; border: 2px dashed var(--line); border-radius: 8px;
-    font: 600 .85rem/1.4 var(--mono); color: var(--ph-fg); background: var(--ph-bg);
+    content: attr(data-file); display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 1rem; border: 1px dashed var(--dash); border-radius: 1rem; background: var(--bg);
+    font: 500 .8rem/1.4 var(--mono); color: var(--muted); word-break: break-all;
   }
+  figure.shot.missing::before { aspect-ratio: 16 / 10; }
+  figure.page.missing::before { aspect-ratio: 8.5 / 11; }
+  .shots { display: grid; gap: .9rem; grid-template-columns: 1fr 1fr; }
+  .shots figure:first-child { grid-column: 1 / -1; }
+  .score { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+  .score figure { flex: 0 0 10.5rem; }
+  .score .fields { flex: 1 1 14rem; flex-direction: column; flex-wrap: nowrap; }
+  .score .fields > div { flex: none; }
+  .program { display: flex; align-items: center; gap: .9rem; border: 1px solid var(--line); border-radius: .9rem; padding: .75rem; }
+  .program figure { flex: 0 0 4rem; }
+  .program figure img, .program figure.missing::before { border-radius: .4rem; }
+  .program figure.missing::before { content: ""; padding: 0; }
+  .program .r { font: 500 .8rem/1.4 var(--mono); }
 
-  .yt {
-    position: relative; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden;
-    background: #000; border: 1px solid var(--line);
-  }
+  .yt { position: relative; aspect-ratio: 16 / 9; border-radius: 1rem; overflow: hidden; background: var(--player); color: #F6F5F2; }
   .yt img, .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
   .yt button {
-    position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer;
-    background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 55%); color: #fff;
-    display: flex; align-items: flex-end; justify-content: flex-start; gap: .75rem; padding: 1rem 1.1rem;
-    font: 600 1rem/1.3 var(--sans); text-align: left;
+    position: absolute; inset: 0; width: 100%; border: 0; cursor: pointer; color: inherit;
+    background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0) 60%);
+    display: flex; align-items: flex-end; gap: .9rem; padding: 1.1rem; text-align: left; font: 600 1rem/1.3 var(--sans);
   }
   .yt button::before {
-    content: ""; flex: none; width: 3rem; height: 3rem; border-radius: 50%;
-    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") center / 1.4rem no-repeat;
+    content: ""; flex: none; width: 3.25rem; height: 3.25rem; border-radius: 50%;
+    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") 55% center / 1.3rem no-repeat;
   }
   .yt button:hover::before { transform: scale(1.06); }
-  .yt.empty { background: var(--ph-bg); }
-  .yt.empty button { cursor: default; background: none; color: var(--ph-fg); font-family: var(--mono); font-size: .85rem; align-items: center; justify-content: center; text-align: center; }
-  .yt.empty button::before { display: none; }
-
-  .sub-performances { display: grid; gap: 2rem; margin-top: 2rem; }
-  @media (min-width: 48rem) { .sub-performances { grid-template-columns: 1fr 1fr; } }
-  .sub-performances h4 { margin-top: 0; }
+  .yt.small button::before { width: 2.75rem; height: 2.75rem; background-size: 1.1rem; }
+  .yt.empty button { cursor: default; background: none; }
+  .yt.empty button::before { opacity: .55; }
+  .yt .src { display: block; font: 500 .72rem/1.4 var(--mono); color: #F2CF86; margin-top: .2rem; word-break: break-all; }
 
   /* Timeline */
-  .timeline { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
-  .timeline li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
-  @media (min-width: 48rem) { .timeline li { grid-template-columns: 9rem 1fr; } }
-  .timeline .year { font: 600 .95rem/1.65 var(--mono); color: var(--accent); }
-  .timeline .optional-video { margin-top: 1rem; max-width: 30rem; }
+  .timeline { border-top: 1px solid var(--line); }
+  .timeline li { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .timeline .year { flex: 0 0 7.5rem; font: 600 .95rem/1.75 var(--mono); color: var(--accent); }
+  .timeline .what { flex: 1 1 18rem; min-width: 0; }
+  .timeline .yt { margin-top: 1rem; max-width: 26rem; }
 
-  /* About / contact */
-  .prose { max-width: 42rem; font: 400 clamp(1.15rem, 2.4vw, 1.35rem)/1.6 var(--serif); }
-  .contact-email { font: 700 clamp(1.4rem, 4.5vw, 2.4rem)/1.2 var(--serif); word-break: break-word; }
+  /* Contact */
+  .contact { border-radius: 2rem; background: var(--accent); color: var(--on-accent); padding: clamp(2.25rem, 6vw, 5rem); display: flex; flex-direction: column; gap: 2rem; }
+  .contact h2 { margin: 0; font: 600 .8rem/1 var(--mono); letter-spacing: .14em; }
+  .contact .email { font: 800 clamp(2.1rem, 6vw, 5.5rem)/1 var(--display); letter-spacing: -.04em; color: var(--on-accent); text-decoration: none; word-break: break-word; }
+  .contact .pill { background: transparent; border: 1.5px solid var(--on-accent); color: var(--on-accent); font-weight: 600; }
+  .contact .pill:hover { background: var(--on-accent); color: var(--accent); }
 
-  footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; color: var(--muted); font-size: .95rem; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding-top: 3rem; padding-bottom: 4rem; font-size: .9rem; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -188,12 +250,12 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top">Jack (Erfeng) Jiang</a>
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">J</span>Jack (Erfeng) Jiang</a>
     <nav class="site-nav" aria-label="Main">
       <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#timeline">Timeline</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#timeline">Timeline</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -202,279 +264,313 @@
 
 <main id="main">
 
-  <!-- 1. HERO -->
+  <!-- HERO -->
   <div class="hero" id="top">
     <div class="wrap">
-      <p class="eyebrow">Portfolio</p>
-      <h1>Jack <span class="alt">(Erfeng)</span> Jiang</h1>
-      <p class="subtitle">Saxophonist<span class="sep" aria-hidden="true">|</span>University of Illinois Urbana-Champaign, Music Performance + Computer Science minor</p>
-      <p class="lede"><span class="ph">[WRITE: one sentence about what you build and why, in your own words]</span></p>
-      <ul class="links" aria-label="Profiles and contact">
-        <li><a href="[GITHUB_URL]" rel="me">GitHub</a></li>
-        <li><a href="[YOUTUBE_CHANNEL_URL]" rel="me">YouTube</a></li>
-        <li><a href="https://www.linkedin.com/in/erfeng-jiang" rel="me">LinkedIn</a></li>
-        <li><a href="mailto:[EMAIL]">Email</a></li>
-      </ul>
+      <p class="eyebrow">Classical saxophonist · Music Performance + CS</p>
+      <h1>Jack <span class="alt">(Erfeng)</span><br>Jiang</h1>
+      <div class="hero-row">
+        <div class="hero-text">
+          <p class="subtitle">Saxophonist<span class="sep" aria-hidden="true">|</span>University of Illinois Urbana-Champaign, Music Performance + Computer Science minor</p>
+          <p class="lede"><span class="ph">[WRITE: one sentence about what you build and why, in your own words]</span></p>
+        </div>
+        <ul class="pills" aria-label="Profiles and contact">
+          <li><a class="pill" href="[GITHUB_URL]" rel="me">GitHub <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+          <li><a class="pill" href="[YOUTUBE_CHANNEL_URL]" rel="me">YouTube <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+          <li><a class="pill" href="https://www.linkedin.com/in/erfeng-jiang" rel="me">LinkedIn <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+          <li><a class="pill solid" href="mailto:[EMAIL]">Email</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <!-- 2. PROJECTS -->
-  <section id="projects" aria-labelledby="projects-title">
-    <div class="wrap">
-      <div class="section-head"><span class="num">01</span><h2 id="projects-title">Projects</h2></div>
+  <div class="wrap" aria-hidden="true">
+    <svg class="staff" viewBox="0 0 1216 96" preserveAspectRatio="xMidYMid slice" fill="none">
+      <path class="lines" d="M0 16H1216M0 32H1216M0 48H1216M0 64H1216M0 80H1216"/>
+      <g class="notes"><ellipse cx="120" cy="56" rx="9" ry="7"/><ellipse cx="220" cy="40" rx="9" ry="7"/><ellipse cx="320" cy="48" rx="9" ry="7"/><ellipse cx="520" cy="24" rx="9" ry="7"/><ellipse cx="620" cy="32" rx="9" ry="7"/><ellipse cx="820" cy="64" rx="9" ry="7"/><ellipse cx="920" cy="56" rx="9" ry="7"/><ellipse cx="1120" cy="40" rx="9" ry="7"/></g>
+      <ellipse class="lit" cx="720" cy="16" rx="9" ry="7"/>
+    </svg>
+  </div>
 
-      <!-- a) Rigo -->
-      <article class="project" aria-labelledby="p-rigo">
-        <div class="project-head">
-          <span class="project-index">A</span>
-          <h3 id="p-rigo">Rigo Smart Booking System</h3>
-          <p class="project-kicker">AI-powered booking platform</p>
-        </div>
-        <dl class="fields">
-          <div><dt>Role</dt><dd><span class="ph">[CONFIRM: role]</span></dd></div>
-          <div><dt>Dates</dt><dd><span class="ph">[CONFIRM: e.g. Summer 2026 – Present]</span></dd></div>
-          <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally built]</span></dd></div>
-          <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
-          <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
-          <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
-          <div><dt>Links</dt><dd><a href="https://tryrigo.com">tryrigo.com</a> <span class="ph">[CONFIRM: it may be linked]</span></dd></div>
-        </dl>
-        <h4>Media</h4>
-        <!-- Screenshots must use test data only, no real customer data -->
-        <div class="media-grid cols-3">
-          <figure class="shot" data-file="images/rigo-1.png">
-            <img src="images/rigo-1.png" alt="Rigo Smart Booking System screenshot 1 [WRITE: describe what the screenshot shows]" loading="lazy" width="1600" height="1000">
-          </figure>
-          <figure class="shot" data-file="images/rigo-2.png">
-            <img src="images/rigo-2.png" alt="Rigo Smart Booking System screenshot 2 [WRITE: describe what the screenshot shows]" loading="lazy" width="1600" height="1000">
-          </figure>
-          <figure class="shot" data-file="images/rigo-3.png">
-            <img src="images/rigo-3.png" alt="Rigo Smart Booking System screenshot 3 [WRITE: describe what the screenshot shows]" loading="lazy" width="1600" height="1000">
-          </figure>
-        </div>
-      </article>
-
-      <!-- b) Click, Clack, Moo -->
-      <article class="project" aria-labelledby="p-cows">
-        <div class="project-head">
-          <span class="project-index">B</span>
-          <h3 id="p-cows">“Click, Clack, Moo: Cows That Type”</h3>
-          <p class="project-kicker">Original composition (co-written), 2025</p>
-        </div>
-        <ul class="facts">
-          <li><strong>Instrumentation:</strong> 10 instruments and narrator</li>
-          <li><strong>Extended techniques:</strong> sticky-note percussion, “straw oboe”, sul ponticello glissandi</li>
-          <li><strong>Co-composer:</strong> <span class="ph">[CONFIRM: name and how to credit the co-composer]</span></li>
-        </ul>
-        <dl class="fields">
-          <div><dt>Role</dt><dd>Co-composer <span class="ph">[CONFIRM: wrote the woodwind parts]</span></dd></div>
-          <div><dt>Dates</dt><dd>2025</dd></div>
-          <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally wrote]</span></dd></div>
-          <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
-          <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
-          <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
-          <div><dt>Links</dt><dd>
-            <!-- CONFIRM: co-composer agrees to publishing the full score before uploading files/cows-score.pdf -->
-            <a href="files/cows-score.pdf" download>Download full score (PDF)</a> <span class="ph">[CONFIRM: co-composer agrees to publishing the full score]</span>
-          </dd></div>
-        </dl>
-        <h4>Media</h4>
-        <div class="media-grid cols-2">
-          <figure class="page" data-file="images/cows-score-p1.png">
-            <img src="images/cows-score-p1.png" alt="First page of the score for Click, Clack, Moo: Cows That Type" loading="lazy" width="1275" height="1650">
-            <figcaption>Score, page 1</figcaption>
-          </figure>
-          <div>
-            <!-- Audio: [TO ADD if a recording exists]. If you have one, replace the line below with a YouTube embed (copy a .yt block from another card). -->
-            <p><span class="ph">[TO ADD: audio recording, if one exists — otherwise delete this line]</span></p>
-          </div>
-        </div>
-      </article>
-
-      <!-- c) Glazunov -->
-      <article class="project" aria-labelledby="p-glazunov">
-        <div class="project-head">
-          <span class="project-index">C</span>
-          <h3 id="p-glazunov">Glazunov Saxophone Concerto</h3>
-          <p class="project-kicker">Solo performance</p>
-        </div>
-        <ul class="facts">
-          <li><strong>Palo Alto High School Concerto Soloist</strong> (2026)</li>
-          <li><strong>University of Illinois School of Music merit scholarship</strong> (classical saxophone)</li>
-        </ul>
-        <dl class="fields">
-          <div><dt>Role</dt><dd>Soloist</dd></div>
-          <div><dt>Dates</dt><dd>2026</dd></div>
-          <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you prepared and performed]</span></dd></div>
-          <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
-          <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
-          <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
-          <div><dt>Links</dt><dd><a href="[YOUTUBE_URL_GLAZUNOV]">Watch on YouTube</a></dd></div>
-        </dl>
-        <h4>Media</h4>
-        <div class="media-grid">
-          <div class="yt" data-src="[YOUTUBE_URL_GLAZUNOV]" data-title="Glazunov Saxophone Concerto — Jack (Erfeng) Jiang">
-            <button type="button">Play: Glazunov Saxophone Concerto</button>
-          </div>
-        </div>
-
-        <h4>More performances</h4>
-        <div class="sub-performances">
-          <div>
-            <h4>Ferling Etude No. 9</h4>
-            <div class="yt" data-src="[YOUTUBE_URL_ETUDE]" data-title="Ferling Etude No. 9 — Jack (Erfeng) Jiang">
-              <button type="button">Play: Ferling Etude No. 9</button>
-            </div>
-          </div>
-          <div>
-            <h4>IU Jacobs Summer Saxophone Academy 2025, quartet</h4>
-            <!-- CONFIRM: OK to re-post IU's recording, which shows other students. If not, delete this .yt block. -->
-            <div class="yt" data-src="[YOUTUBE_URL_IU]" data-title="IU Jacobs Summer Saxophone Academy 2025 quartet">
-              <button type="button">Play: IU Jacobs Summer Saxophone Academy 2025, quartet</button>
-            </div>
-            <p><span class="ph">[CONFIRM: OK to re-post IU's recording, which shows other students]</span></p>
-            <figure class="page" data-file="images/iu-program-2025.png" style="margin-top:1rem">
-              <img src="images/iu-program-2025.png" alt="Concert program, IU Jacobs Summer Saxophone Academy 2025" loading="lazy" width="1275" height="1650">
-              <figcaption>Concert program, 2025</figcaption>
-            </figure>
-          </div>
-        </div>
-      </article>
-
-      <!-- d) Paly Saxophone Quartet -->
-      <article class="project" aria-labelledby="p-quartet">
-        <div class="project-head">
-          <span class="project-index">D</span>
-          <h3 id="p-quartet">Palo Alto High School Saxophone Quartet</h3>
-          <p class="project-kicker">Founder, 2025–2026</p>
-        </div>
-        <dl class="fields">
-          <div><dt>Role</dt><dd>Founder</dd></div>
-          <div><dt>Dates</dt><dd>2025–2026</dd></div>
-          <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally built]</span></dd></div>
-          <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
-          <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
-          <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
-          <div><dt>Links</dt><dd><a href="[YOUTUBE_URL_QUARTET]">Watch on YouTube</a></dd></div>
-        </dl>
-        <h4>Media</h4>
-        <!-- TO ADD: performance video -->
-        <div class="media-grid">
-          <div class="yt" data-src="[YOUTUBE_URL_QUARTET]" data-title="Palo Alto High School Saxophone Quartet">
-            <button type="button">Play: Palo Alto High School Saxophone Quartet</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- e) Boundarie.org -->
-      <article class="project" aria-labelledby="p-boundarie">
-        <div class="project-head">
-          <span class="project-index">E</span>
-          <h3 id="p-boundarie">Boundarie.org</h3>
-          <p class="project-kicker">Nonprofit, 2025 – Present</p>
-        </div>
-        <ul class="facts">
-          <li><strong>Tools:</strong> SoundTrap, Logic Pro, GarageBand</li>
-        </ul>
-        <dl class="fields">
-          <div><dt>Role</dt><dd><span class="ph">[CONFIRM ONE TITLE]</span></dd></div>
-          <div><dt>Dates</dt><dd>2025 – Present</dd></div>
-          <div><dt>What I built</dt><dd><span class="ph">[WRITE: the music and media you produced]</span></dd></div>
-          <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
-          <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
-          <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
-          <div><dt>Links</dt><dd>
-            <ul>
-              <li><a href="https://boundarie.org">boundarie.org</a> <span class="ph">[CONFIRM]</span></li>
-              <li><span class="ph">[TO ADD: example of my work 1]</span></li>
-              <li><span class="ph">[TO ADD: example of my work 2]</span></li>
-              <li><span class="ph">[TO ADD: example of my work 3 — optional]</span></li>
-            </ul>
-          </dd></div>
-        </dl>
-      </article>
-
-      <!-- f) Technical learning -->
-      <article class="project" aria-labelledby="p-tech">
-        <div class="project-head">
-          <span class="project-index">F</span>
-          <h3 id="p-tech">Technical learning</h3>
-        </div>
-        <ul class="facts">
-          <li><strong>iD Tech “Code Apps with Java”</strong> camp (2022)</li>
-          <li><strong>AP Computer Science Principles</strong></li>
-          <li><strong>Java boot camp</strong> <span class="ph">[CONFIRM: same as the iD Tech camp? If yes, delete this line]</span></li>
-          <li><strong>Python</strong> (self-taught)</li>
-          <li><strong>Raspberry Pi hardware projects</strong> (team)</li>
-        </ul>
-        <dl class="fields">
-          <div><dt>Role</dt><dd><span class="ph">[CONFIRM: role, e.g. Student / Team member]</span></dd></div>
-          <div><dt>Dates</dt><dd><span class="ph">[CONFIRM: e.g. 2022 – Present]</span></dd></div>
-          <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally built]</span></dd></div>
-          <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
-          <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
-          <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
-          <div><dt>Links</dt><dd>
-            <!-- Only list repos that have real code or photos -->
-            <ul>
-              <li><a href="[GITHUB_REPO_URL_1]">[REPO_NAME_1]</a></li>
-              <li><a href="[GITHUB_REPO_URL_2]">[REPO_NAME_2]</a></li>
-            </ul>
-          </dd></div>
-        </dl>
-      </article>
-    </div>
-  </section>
-
-  <!-- 3. TIMELINE -->
-  <section id="timeline" aria-labelledby="timeline-title">
-    <div class="wrap">
-      <div class="section-head"><span class="num">02</span><h2 id="timeline-title">Timeline</h2></div>
-      <ol class="timeline" reversed>
-        <li><span class="year">2026</span><span>UIUC School of Music</span></li>
-        <li><span class="year">2026</span><span>Paly Concerto Soloist</span></li>
-        <li><span class="year">2025</span><span>IU Jacobs Summer Saxophone Academy, first chair alto (Cream Ensemble)</span></li>
-        <li><span class="year">2025</span><span>SJSU Saxophone and Honor Wind Ensembles</span></li>
-        <li><span class="year">2023</span><span>NYC St. Patrick’s Day Parade with the marching band</span></li>
-        <li><span class="year">2022–2023</span><span>Virginia All-State</span></li>
-        <li><span class="year">2022</span><span>iD Tech “Code Apps with Java” camp</span></li>
-        <!-- OPTIONAL: delete this item if you don't want it -->
-        <li><span class="year">2021</span><span>Extreme Military Challenge: Cadet Basic Training + Cadet Field Leader Course <span class="ph">[OPTIONAL: keep or delete]</span></span></li>
-        <li><span class="year">Age 12</span>
-          <div>
-            First time busking with my saxophone in Boston
-            <!-- OPTIONAL: delete this video block if you don't use it -->
-            <div class="yt optional-video" data-src="[YOUTUBE_URL_BUSKING]" data-title="Busking in Boston, age 12">
-              <button type="button">Play: Busking in Boston</button>
-            </div>
-          </div>
-        </li>
-        <!-- OPTIONAL: fill in only from records, or delete -->
-        <li><span class="year">Service</span><span>Volunteer service: <span class="ph">[TO ADD: total]</span> hours with <span class="ph">[TO ADD: organizations]</span> <span class="ph">[OPTIONAL]</span></span></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 4. ABOUT -->
+  <!-- 01 ABOUT -->
   <section id="about" aria-labelledby="about-title">
-    <div class="wrap">
-      <div class="section-head"><span class="num">03</span><h2 id="about-title">About me</h2></div>
-      <div class="prose">
-        <p><span class="ph">[WRITE: 3-5 sentences in your own words]</span></p>
+    <div class="wrap side-layout">
+      <div class="side">
+        <span class="sec-num">01</span>
+        <h2 id="about-title">About me</h2>
+      </div>
+      <div class="main">
+        <p class="about-text"><span class="ph">[WRITE: 3-5 sentences in your own words — classical music, AI, venture]</span></p>
+        <ul class="focus" aria-label="Focus areas">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Classical music</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span>AI</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><span>Venture capital</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 5. CONTACT -->
+  <!-- 02 WORK -->
+  <section id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="work-head">
+        <div>
+          <span class="sec-num">02</span>
+          <h2 id="work-title">Selected work</h2>
+        </div>
+        <span class="note">MUSIC FIRST · THEN CODE</span>
+      </div>
+
+      <!-- A) Glazunov (featured) -->
+      <article class="card split feature" aria-labelledby="p-glazunov">
+        <div class="col">
+          <p class="kicker"><b>A</b> Featured · Performance · 2026</p>
+          <div>
+            <h3 id="p-glazunov">Glazunov Saxophone Concerto</h3>
+            <p class="sub">Solo performance · Soloist</p>
+          </div>
+          <ul class="awards">
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><span>Palo Alto High School Concerto Soloist (2026)</span></li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><span>University of Illinois School of Music merit scholarship (classical saxophone)</span></li>
+          </ul>
+          <dl class="fields">
+            <div><dt>Role</dt><dd>Soloist</dd></div>
+            <div><dt>Dates</dt><dd>2026</dd></div>
+            <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you prepared and performed]</span></dd></div>
+            <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
+            <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
+            <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
+          </dl>
+        </div>
+        <div class="col wide">
+          <div class="yt" data-src="[YOUTUBE_URL_GLAZUNOV]" data-title="Glazunov Saxophone Concerto — Jack (Erfeng) Jiang">
+            <button type="button"><span>Glazunov — Saxophone Concerto<span class="src"></span></span></button>
+          </div>
+          <div class="media-2">
+            <div>
+              <p class="media-label">Ferling Etude No. 9</p>
+              <div class="yt small" data-src="[YOUTUBE_URL_ETUDE]" data-title="Ferling Etude No. 9 — Jack (Erfeng) Jiang">
+                <button type="button"><span>Ferling Etude No. 9<span class="src"></span></span></button>
+              </div>
+            </div>
+            <div>
+              <p class="media-label">IU Jacobs Summer Saxophone Academy 2025, quartet</p>
+              <!-- CONFIRM: OK to re-post IU's recording, which shows other students. If not, delete this .yt block. -->
+              <div class="yt small" data-src="[YOUTUBE_URL_IU]" data-title="IU Jacobs Summer Saxophone Academy 2025 quartet">
+                <button type="button"><span>IU Jacobs 2025 quartet<span class="src"></span></span></button>
+              </div>
+              <p style="margin:.5rem 0 0"><span class="ph">[CONFIRM: OK to re-post IU's recording, which shows other students]</span></p>
+            </div>
+          </div>
+          <div class="program">
+            <figure class="page" data-file="images/iu-program-2025.png">
+              <img src="images/iu-program-2025.png" alt="Concert program, IU Jacobs Summer Saxophone Academy 2025" loading="lazy" width="1275" height="1650">
+            </figure>
+            <div><div style="font-weight:600">Concert program, IU Jacobs 2025</div><a class="r" href="images/iu-program-2025.png">View full size</a></div>
+          </div>
+        </div>
+      </article>
+
+      <div class="card-grid">
+        <!-- B) Click, Clack, Moo -->
+        <article class="card" aria-labelledby="p-cows">
+          <p class="kicker"><b>B</b> Composition · 2025</p>
+          <div>
+            <h3 id="p-cows">“Click, Clack, Moo: Cows That Type”</h3>
+            <p class="sub">Original composition (co-written) · 10 instruments and narrator</p>
+          </div>
+          <ul class="chips" aria-label="Extended techniques">
+            <li class="tag">Sticky-note percussion</li>
+            <li class="tag">“Straw oboe”</li>
+            <li class="tag">Sul ponticello glissandi</li>
+          </ul>
+          <div class="chips">
+            <span class="chip"><span class="k">Role</span>Co-composer <span class="ph">[CONFIRM: wrote the woodwind parts]</span></span>
+            <span class="chip"><span class="k">Dates</span>2025</span>
+            <span class="chip"><span class="k">With</span><span class="ph">[CONFIRM: name and how to credit the co-composer]</span></span>
+          </div>
+          <div class="score">
+            <figure class="page" data-file="images/cows-score-p1.png">
+              <img src="images/cows-score-p1.png" alt="First page of the score for Click, Clack, Moo: Cows That Type" loading="lazy" width="1275" height="1650">
+              <figcaption>Score, page 1</figcaption>
+            </figure>
+            <dl class="fields">
+              <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally wrote]</span></dd></div>
+              <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
+              <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
+              <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
+            </dl>
+          </div>
+          <div class="actions">
+            <!-- CONFIRM: co-composer agrees to publishing the full score before uploading files/cows-score.pdf -->
+            <a class="pill" href="files/cows-score.pdf" download><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>Full score (PDF)</a>
+            <span class="ph">[CONFIRM: co-composer agrees to publishing the full score]</span>
+            <!-- Audio: if a recording exists, add a .yt block here (copy one from another card) -->
+            <span class="ph">[TO ADD: audio, if a recording exists — otherwise delete]</span>
+          </div>
+        </article>
+
+        <!-- C) Paly Saxophone Quartet -->
+        <article class="card" aria-labelledby="p-quartet">
+          <p class="kicker"><b>C</b> Ensemble · 2025–2026</p>
+          <div>
+            <h3 id="p-quartet">Palo Alto High School Saxophone Quartet</h3>
+            <p class="sub">Founder</p>
+          </div>
+          <div class="yt" data-src="[YOUTUBE_URL_QUARTET]" data-title="Palo Alto High School Saxophone Quartet">
+            <button type="button"><span>Quartet performance<span class="src"></span></span></button>
+          </div>
+          <dl class="fields">
+            <div><dt>Role</dt><dd>Founder</dd></div>
+            <div><dt>Dates</dt><dd>2025–2026</dd></div>
+            <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally built]</span></dd></div>
+            <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
+            <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
+            <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
+          </dl>
+        </article>
+
+        <!-- D) Boundarie.org -->
+        <article class="card split full" aria-labelledby="p-boundarie">
+          <div class="col">
+            <p class="kicker"><b>D</b> Music &amp; media · Nonprofit · 2025 – Present</p>
+            <div>
+              <h3 id="p-boundarie">Boundarie.org</h3>
+              <p class="sub"><span class="ph">[CONFIRM ONE TITLE]</span></p>
+            </div>
+            <ul class="chips" aria-label="Tools">
+              <li class="tag">SoundTrap</li>
+              <li class="tag">Logic Pro</li>
+              <li class="tag">GarageBand</li>
+            </ul>
+            <ul class="rows">
+              <li><a href="https://boundarie.org">boundarie.org <span class="ph">[CONFIRM]</span></a></li>
+              <li><span class="ph">[TO ADD: example of my work 1]</span></li>
+              <li><span class="ph">[TO ADD: example of my work 2]</span></li>
+              <li><span class="ph">[TO ADD: example of my work 3 — optional]</span></li>
+            </ul>
+          </div>
+          <div class="col wide">
+            <dl class="fields">
+              <div><dt>Role</dt><dd><span class="ph">[CONFIRM ONE TITLE]</span></dd></div>
+              <div><dt>Dates</dt><dd>2025 – Present</dd></div>
+              <div><dt>What I built</dt><dd><span class="ph">[WRITE: the music and media you produced]</span></dd></div>
+              <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
+              <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
+              <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+
+      <p class="divider">CODE &amp; PRODUCT</p>
+
+      <!-- E) Rigo -->
+      <article class="card split" aria-labelledby="p-rigo">
+        <div class="col">
+          <p class="kicker"><b>E</b> Software · AI</p>
+          <div>
+            <h3 id="p-rigo">Rigo Smart Booking System</h3>
+            <p class="sub">AI-powered booking platform</p>
+          </div>
+          <dl class="fields">
+            <div><dt>Role</dt><dd><span class="ph">[CONFIRM: role]</span></dd></div>
+            <div><dt>Dates</dt><dd><span class="ph">[CONFIRM: e.g. Summer 2026 – Present]</span></dd></div>
+            <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally built]</span></dd></div>
+            <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
+            <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
+            <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
+          </dl>
+          <div class="actions">
+            <a class="pill solid" href="https://tryrigo.com">Visit tryrigo.com <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            <span class="ph">[CONFIRM: it may be linked]</span>
+          </div>
+        </div>
+        <div class="col wide">
+          <!-- Screenshots must use test data only, no real customer data -->
+          <div class="shots">
+            <figure class="shot" data-file="images/rigo-1.png"><img src="images/rigo-1.png" alt="Rigo Smart Booking System screenshot 1 [WRITE: describe what the screenshot shows]" loading="lazy" width="1600" height="1000"></figure>
+            <figure class="shot" data-file="images/rigo-2.png"><img src="images/rigo-2.png" alt="Rigo Smart Booking System screenshot 2 [WRITE: describe what the screenshot shows]" loading="lazy" width="1600" height="1000"></figure>
+            <figure class="shot" data-file="images/rigo-3.png"><img src="images/rigo-3.png" alt="Rigo Smart Booking System screenshot 3 [WRITE: describe what the screenshot shows]" loading="lazy" width="1600" height="1000"></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- F) Technical learning -->
+      <article class="card split" style="margin-top:1.5rem" aria-labelledby="p-tech">
+        <div class="col">
+          <p class="kicker"><b>F</b> Code · <span class="ph">[CONFIRM: e.g. 2022 – Present]</span></p>
+          <h3 id="p-tech">Technical learning</h3>
+          <ul class="rows">
+            <li><span>iD Tech “Code Apps with Java” camp</span><span class="r">2022</span></li>
+            <li><span>AP Computer Science Principles</span><span class="r">AP</span></li>
+            <li><span>Java boot camp</span><span class="ph">[CONFIRM: same as the iD Tech camp? If yes, delete this line]</span></li>
+            <li><span>Python</span><span class="r">Self-taught</span></li>
+            <li><span>Raspberry Pi hardware projects</span><span class="r">Team</span></li>
+          </ul>
+        </div>
+        <div class="col wide">
+          <dl class="fields">
+            <div><dt>Role</dt><dd><span class="ph">[CONFIRM: role, e.g. Student / Team member]</span></dd></div>
+            <div><dt>What I built</dt><dd><span class="ph">[WRITE: what you personally built]</span></dd></div>
+            <div><dt>Challenges</dt><dd><span class="ph">[WRITE: challenges]</span></dd></div>
+            <div><dt>What I learned</dt><dd><span class="ph">[WRITE: what you learned]</span></dd></div>
+            <div><dt>Results</dt><dd><span class="ph">[WRITE: results, use numbers]</span></dd></div>
+          </dl>
+          <!-- Only list repos that have real code or photos -->
+          <div class="pills">
+            <a class="repo" href="[GITHUB_REPO_URL_1]"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>[REPO_NAME_1]</a>
+            <a class="repo" href="[GITHUB_REPO_URL_2]"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>[REPO_NAME_2]</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 03 TIMELINE -->
+  <section id="timeline" aria-labelledby="timeline-title">
+    <div class="wrap side-layout">
+      <div class="side">
+        <span class="sec-num">03</span>
+        <h2 id="timeline-title">Timeline</h2>
+      </div>
+      <ol class="timeline main" reversed>
+        <li><span class="year">2026</span><span class="what">UIUC School of Music</span></li>
+        <li><span class="year">2026</span><span class="what">Paly Concerto Soloist</span></li>
+        <li><span class="year">2025</span><span class="what">IU Jacobs Summer Saxophone Academy, first chair alto (Cream Ensemble)</span></li>
+        <li><span class="year">2025</span><span class="what">SJSU Saxophone and Honor Wind Ensembles</span></li>
+        <li><span class="year">2023</span><span class="what">NYC St. Patrick’s Day Parade with the marching band</span></li>
+        <li><span class="year">2022–2023</span><span class="what">Virginia All-State</span></li>
+        <li><span class="year">2022</span><span class="what">iD Tech “Code Apps with Java” camp</span></li>
+        <!-- OPTIONAL: delete this item if you don't want it -->
+        <li><span class="year">2021</span><span class="what">Extreme Military Challenge: Cadet Basic Training + Cadet Field Leader Course <span class="ph">[OPTIONAL: keep or delete]</span></span></li>
+        <li><span class="year">Age 12</span>
+          <div class="what">
+            First time busking with my saxophone in Boston
+            <!-- OPTIONAL: delete this video block if you don't use it -->
+            <div class="yt small" data-src="[YOUTUBE_URL_BUSKING]" data-title="Busking in Boston, age 12">
+              <button type="button"><span>Busking in Boston<span class="src"></span></span></button>
+            </div>
+          </div>
+        </li>
+        <!-- OPTIONAL: fill in only from records, or delete -->
+        <li><span class="year">Service</span><span class="what">Volunteer service: <span class="ph">[TO ADD: total]</span> hours with <span class="ph">[TO ADD: organizations]</span> <span class="ph">[OPTIONAL]</span></span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 04 CONTACT -->
   <section id="contact" aria-labelledby="contact-title">
     <div class="wrap">
-      <div class="section-head"><span class="num">04</span><h2 id="contact-title">Contact</h2></div>
-      <p class="contact-email"><a href="mailto:[EMAIL]">[EMAIL]</a></p>
-      <ul class="links" aria-label="Profiles">
-        <li><a href="[GITHUB_URL]" rel="me">GitHub</a></li>
-        <li><a href="[YOUTUBE_CHANNEL_URL]" rel="me">YouTube</a></li>
-        <li><a href="https://www.linkedin.com/in/erfeng-jiang" rel="me">LinkedIn</a></li>
-      </ul>
+      <div class="contact">
+        <h2 id="contact-title">04 — CONTACT</h2>
+        <a class="email" href="mailto:[EMAIL]">[EMAIL]</a>
+        <ul class="pills" aria-label="Profiles">
+          <li><a class="pill" href="[GITHUB_URL]" rel="me">GitHub</a></li>
+          <li><a class="pill" href="[YOUTUBE_CHANNEL_URL]" rel="me">YouTube</a></li>
+          <li><a class="pill" href="https://www.linkedin.com/in/erfeng-jiang" rel="me">LinkedIn</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 </main>
@@ -498,7 +594,8 @@
     if (!id) {
       box.classList.add("empty");
       btn.disabled = true;
-      btn.textContent = "Video placeholder: " + box.dataset.src;
+      var src = btn.querySelector(".src");
+      if (src) src.textContent = box.dataset.src;
       return;
     }
     var thumb = document.createElement("img");
