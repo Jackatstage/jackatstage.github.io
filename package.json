@@ -1,0 +1,18 @@
+{
+  "name": "jackatstage.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jack (Erfeng) Jiang — personal portfolio site, served by GitHub Pages",
+  "scripts": {
+    "dev": "browser-sync start --server --files \"**/*.html\" \"**/*.css\" \"**/*.js\" \"images/**\" --no-notify --port 3000",
+    "validate": "html-validate \"*.html\"",
+    "format": "prettier --write \"**/*.{html,css,js,json,md,yml}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,json,md,yml}\"",
+    "check": "npm run validate"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "html-validate": "^11.18.0",
+    "prettier": "^3.9.10"
+  }
+}
