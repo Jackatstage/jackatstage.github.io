@@ -1,11 +1,16 @@
 <!doctype html>
+<!-- Plain HTML: works the same on GitHub Pages and on any local static server.
+     Unfinished fields are elements with a data-todo attribute (see TODO.md): they stay in
+     the HTML but are hidden by CSS. Write the text, delete data-todo="...", and it shows.
+     Optional photos (data-optional) appear on their own once the file exists in images/. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jack (Erfeng) Jiang — Portfolio</title>
 <meta name="description" content="Jack (Erfeng) Jiang — saxophonist and builder. University of Illinois Urbana-Champaign, B.M. Music Performance (Saxophone), Computer Science minor.">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
 
 <!-- Open Graph / link previews. Site address: https://jackatstage.github.io -->
 <meta property="og:type" content="website">
@@ -37,8 +42,6 @@
     --line: #D6D4CC;
     --dash: #A9A69C;
     --link-hover: #5E4209;
-    --ph-bg: #E9E1CC;
-    --ph-fg: #5E4209;
     /* dark bands (hero, Next, footer) */
     --band: #16171B;
     --band-text: #F3F2EE;
@@ -54,35 +57,27 @@
     --pad: clamp(16px, 4vw, 48px);
     --sec: clamp(64px, 8vw, 120px);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1D1E22;
-      --surface: #25262B;
-      --sunk: #2C2D33;
-      --chip: #33343A;
-      --text: #F3F2EE;
-      --text-2: #D0CEC6;
-      --muted: #A9A79F;
-      --line: #393A40;
-      --dash: #5D5C58;
-      --link-hover: #E9C77E;
-      --ph-bg: #33302A;
-      --ph-fg: #E9D6A8;
-      --band: #111215;
-      --band-line: #2E2F34;
-    }
-  }
-
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.55 var(--sans); }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.55 var(--sans); counter-reset: sec; }
   img { max-width: 100%; display: block; }
   a { color: var(--text); text-underline-offset: .18em; }
   a:hover { color: var(--link-hover); }
   :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   h1, h2, h3 { font-family: var(--display); margin: 0; }
   p, ul, ol, dl, dd, figure { margin: 0; }
+
+  /* Unfinished fields (TODO.md): kept in the HTML, hidden on the page.
+     Delete data-todo="..." from an element and it shows; a heading shows once anything under it does. */
+  [data-todo], [hidden] { display: none !important; }
+  [data-optional]:not(.ok) { display: none !important; }
+  .field:has(> dd > [data-todo]):not(:has(> dd > :not([data-todo]))) { display: none; }
+  .group:not(:has(> :not([data-todo]))) { display: none; }
+  .card.todo-card:not(:has(dd > :not([data-todo]))) { display: none; }
+  #next:not(:has(.next-lede:not([data-todo]), .notes li:not([data-todo]))) { display: none; }
+  body:not(:has(#next .next-lede:not([data-todo]), #next .notes li:not([data-todo]))) .nav-next { display: none; }
+  .notes-block:not(:has(.notes li:not([data-todo]))) { display: none; }
 
   .skip { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #16171B; padding: 8px 16px; z-index: 10; }
   .skip:focus { left: 16px; top: 16px; }
@@ -91,10 +86,6 @@
   .mono.sm { font-size: 12px; }
   .mono.xs { font-size: 11px; }
   .muted { color: var(--muted); }
-
-  /* Placeholders: visible on purpose, so nothing unfinished slips through */
-  .ph { font-family: var(--mono); font-size: .82em; background: var(--ph-bg); color: var(--ph-fg); padding: 1px 6px; border-radius: 3px; text-transform: none; letter-spacing: 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-  .band .ph { background: #33302A; color: #E9D6A8; }
 
   /* Dark bands */
   .band { background: var(--band); color: var(--band-text); }
@@ -109,6 +100,15 @@
   .topbar nav a { color: var(--band-nav); text-decoration: none; padding: 12px 0; }
   .hero { padding-top: clamp(56px, 8vw, 112px); display: flex; flex-direction: column; gap: 32px; }
   .hero .eyebrow { color: var(--accent); }
+  .hero-top { display: flex; flex-direction: column; gap: 32px; }
+  .hero-top.has-photo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px clamp(24px, 4vw, 64px); align-items: start; }
+  .hero-top.has-photo .eyebrow { grid-column: 1; grid-row: 1; }
+  .hero-top.has-photo h1 { grid-column: 1; grid-row: 2; }
+  .portrait { grid-column: 2; grid-row: 1 / span 2; width: clamp(104px, 22vw, 280px); height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; background: var(--band-line); outline: 1.5px solid var(--accent); outline-offset: 6px; }
+  @media (max-width: 599px) {
+    .hero-top.has-photo h1 { grid-column: 1 / -1; }
+    .portrait { grid-row: 1; }
+  }
   h1 { font-weight: 800; font-size: clamp(48px, 7.2vw, 108px); line-height: .98; letter-spacing: -.03em; max-width: 14ch; text-wrap: balance; }
   .hero-row { display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-end; justify-content: space-between; }
   .hero-text { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
@@ -121,17 +121,23 @@
   .band .btn.ghost { border: 1.5px solid var(--band-ghost); }
   .band .btn.ghost:hover { border-color: var(--accent); }
 
-  .proof { margin-top: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); border-top: 1px solid var(--band-line); list-style: none; padding-left: 0; }
-  .proof li { padding: 20px 24px 28px 0; display: flex; flex-direction: column; gap: 6px; }
-  .proof .mono { color: var(--band-muted); }
-  .proof b { font: 600 21px/1.2 var(--display); }
+  /* Stat tiles on a staff */
+  .proof { margin-top: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); border-top: 1px solid var(--band-line); list-style: none; padding-left: 0; }
+  .proof a { display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 28px 0; text-decoration: none; height: 100%; }
+  .proof b { font: 800 clamp(32px, 3vw, 44px)/1 var(--display); letter-spacing: -.02em; }
+  .proof b i { font-style: normal; }
+  .proof span { font-size: 14px; line-height: 1.4; color: var(--band-muted); max-width: 26ch; }
+  .proof a:hover b { color: var(--accent); }
+  .proof a:hover span { color: var(--band-2); }
   .staff { position: relative; height: 72px; margin-top: 8px; }
   .staff .lines { position: absolute; inset: 14px 0 auto 0; display: flex; flex-direction: column; gap: 10px; }
   .staff .lines i { height: 1px; background: var(--band-line); }
   .staff .note { position: absolute; width: 14px; height: 10px; border-radius: 50%; background: var(--accent); transform: rotate(-20deg); }
 
-  /* Section heads */
+  /* Section heads: numbered automatically, so a hidden section leaves no gap */
   section { padding-top: var(--sec); padding-bottom: var(--sec); }
+  #about, #work, #next, #timeline, #contact { counter-increment: sec; }
+  .sec-num::before { content: counter(sec, decimal-leading-zero) " — "; }
   .split { display: flex; flex-wrap: wrap; gap: 32px 64px; }
   .split > .side { flex: 1 1 260px; display: flex; flex-direction: column; gap: 12px; }
   .split > .main { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
@@ -150,20 +156,23 @@
   .tags li { padding: 6px 14px; border: 1px solid var(--text); font-size: 14px; font-weight: 500; }
   .tools { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
   .tools li { padding: 4px 10px; background: var(--chip); }
+  .toolset { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 
-  /* Work */
-  #work { border-top: 1px solid var(--line); }
+  /* Work: cards lettered automatically, so a hidden card leaves no gap */
+  #work { border-top: 1px solid var(--line); counter-reset: card; }
   #work > .wrap { display: flex; flex-direction: column; gap: 48px; }
   .work-head { display: flex; flex-wrap: wrap; gap: 16px 64px; align-items: flex-end; justify-content: space-between; }
   .work-head > div { display: flex; flex-direction: column; gap: 12px; }
   .work-head p { max-width: 46ch; color: var(--muted); font-size: 16px; }
-  .card { border: 1px solid var(--line); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .card { border: 1px solid var(--line); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 20px; min-width: 0; counter-increment: card; scroll-margin-top: 24px; }
   .card.solid { background: var(--surface); }
   .card.feature { background: var(--surface); padding: clamp(24px, 3.4vw, 48px); flex-direction: row; flex-wrap: wrap; gap: 40px 56px; }
   .card.feature > .col { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr)); gap: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr)); gap: 24px; align-items: start; }
+  #performance { grid-row: span 2; }
   .card-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .letter { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: var(--accent); color: #16171B; border: 1.5px solid #16171B; font: 800 22px/1 var(--display); }
+  .letter::before { content: counter(card, upper-alpha); }
   .card-title { display: flex; flex-direction: column; gap: 8px; }
   h3 { font-weight: 800; font-size: 28px; line-height: 1.1; }
   .feature h3 { font-size: clamp(30px, 3vw, 42px); line-height: 1.05; letter-spacing: -.02em; }
@@ -171,8 +180,9 @@
   .card-lede { font-size: 19px; line-height: 1.5; text-wrap: pretty; }
   .fields { display: flex; flex-direction: column; gap: 14px; }
   .feature .fields { gap: 16px; border-top: 1px solid var(--line); padding-top: 20px; }
-  .fields > div { display: flex; flex-direction: column; gap: 4px; }
+  .field { display: flex; flex-direction: column; gap: 4px; }
   .fields dt { color: var(--muted); }
+  .fields dd { display: flex; flex-direction: column; gap: 8px; }
   .fields ul { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
   .bullets { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
   .rows { list-style: none; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line); }
@@ -186,21 +196,33 @@
   .ext svg { flex: none; }
 
   /* Media */
-  .shots { flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-content: start; }
-  .shots figure:first-child { grid-column: span 2; }
+  .media-col { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
   figure { display: flex; flex-direction: column; gap: 8px; }
-  figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 1px solid var(--line); background: var(--sunk); }
+  figure img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 1px solid var(--line); background: var(--sunk); }
   figure.wide img { aspect-ratio: 16 / 9; }
+  figure.full img { aspect-ratio: auto; object-fit: contain; border: 0; background: none; }
+  figure.photo { max-width: 240px; margin-top: 4px; }
+  figure.photo img { aspect-ratio: 4 / 5; object-position: center 30%; }
+  .media-col a { display: block; }
+  .media-col a:hover img { opacity: .9; }
   figcaption { color: var(--muted); }
-  /* Labelled box for any image not uploaded yet */
-  figure.missing img { display: none; }
-  figure.missing::before {
-    content: "Image · " attr(data-file); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px;
-    background: var(--sunk); border: 1.5px dashed var(--dash); color: var(--muted);
-    font: 500 11px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; word-break: break-all;
-  }
-  figure.wide.missing::before { aspect-ratio: 16 / 9; font-size: 12px; }
-  .media-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 12px; }
+  #glazunov-video { scroll-margin-top: 120px; }
+  .media-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 12px; align-items: start; }
+
+  /* Diagrams (inline SVG, theme-aware) */
+  .diagrams { display: flex; flex-direction: column; gap: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+  .diagrams figure { align-items: flex-start; }
+  .dia { width: 100%; max-width: 380px; height: auto; display: block; }
+  .dia text { font-family: var(--sans); font-size: 13px; fill: var(--text); }
+  .dia .b { font-weight: 600; }
+  .dia .sm { font-size: 11.5px; fill: var(--muted); }
+  .dia .acc { font-size: 11.5px; font-weight: 600; fill: var(--link-hover); }
+  .dia .box { fill: var(--surface); stroke: var(--dash); stroke-width: 1.2; }
+  .dia .low { fill: var(--sunk); stroke: var(--dash); stroke-width: 1.2; }
+  .dia .hi { fill: color-mix(in srgb, var(--accent) 14%, var(--surface)); stroke: var(--accent); stroke-width: 2; }
+  .dia .dashed { stroke-dasharray: 4 3; }
+  .dia .arr { stroke: var(--text-2); stroke-width: 1.4; fill: none; }
+  .dia .head { fill: var(--text-2); }
 
   .yt { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #16171B; color: #F3F2EE; }
   .yt.sq { aspect-ratio: 4 / 3; }
@@ -215,11 +237,13 @@
   }
   .yt.sq button { padding: 10px; font-size: 13px; }
   .yt.sq button::before { width: 34px; height: 34px; background-size: 14px; }
+  .yt .unmute { position: absolute; inset: 10px auto auto 10px; width: auto; min-height: 36px; padding: 0 12px; background: var(--accent); color: #16171B; font: 600 13px/1 var(--sans); align-items: center; }
+  .yt .unmute::before { display: none; }
   .yt button:hover::before { filter: brightness(1.1); }
   .yt.empty { background: var(--sunk); color: var(--muted); border: 1.5px dashed var(--dash); }
   .yt.empty button { cursor: default; background: none; align-items: center; justify-content: center; text-align: center; font: 500 12px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
   .yt.empty button::before { display: none; }
-  .yt .src { display: block; margin-top: 4px; text-transform: none; letter-spacing: 0; color: var(--ph-fg); word-break: break-all; }
+  .yt .src { display: block; margin-top: 4px; text-transform: none; letter-spacing: 0; word-break: break-all; }
 
   /* Next */
   .next-lede { font: 400 clamp(24px, 2.4vw, 32px)/1.3 var(--display); text-wrap: pretty; }
@@ -227,11 +251,32 @@
   .questions li { display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--band-line); }
   .questions .mono { color: var(--accent); }
 
-  /* Timeline */
-  .timeline { list-style: none; padding: 0; display: flex; flex-direction: column; border-top: 1.5px solid var(--text); }
-  .timeline li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-  .timeline .y { font-weight: 500; }
-  .timeline .age { align-self: start; justify-self: start; padding: 2px 8px; background: var(--accent); color: #16171B; border: 1.5px solid #16171B; }
+  /* Timeline: two lanes, Music and Code & AI, meeting at a shared year axis.
+     Below 760px it is one list with a MUSIC / CODE tag on each item. */
+  .tl-head { display: none; }
+  .tl-rows { list-style: none; padding: 0; border-top: 1.5px solid var(--text); }
+  .tl-row { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 10px 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .tl-y { grid-column: 1; grid-row: 1 / span 2; font-weight: 500; padding-top: 3px; }
+  .tl-lane, .tl-both { grid-column: 2; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .tl-lane li, .tl-both { line-height: 1.45; }
+  .tl-tag { display: inline-block; margin-right: 8px; padding: 1px 6px; font-size: 10px; vertical-align: 2px; }
+  .tl-music .tl-tag { background: var(--accent); color: #16171B; }
+  .tl-code .tl-tag { border: 1px solid var(--text-2); }
+  @media (min-width: 760px) {
+    .tl-head { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr); padding-bottom: 12px; }
+    .tl-head .m { text-align: right; color: var(--link-hover); }
+    .tl-head .c { grid-column: 3; }
+    .tl-rows { position: relative; }
+    .tl-rows::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1.5px; margin-left: -.75px; background: var(--line); }
+    .tl-row { grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr); gap: 0; position: relative; }
+    .tl-y { grid-column: 2; grid-row: 1; justify-self: center; align-self: start; padding: 2px 8px; background: var(--bg); position: relative; }
+    .tl-music { grid-column: 1; grid-row: 1; text-align: right; }
+    .tl-code { grid-column: 3; grid-row: 1; }
+    .tl-shared .tl-y { color: var(--link-hover); }
+    .tl-both { grid-column: 1 / -1; grid-row: 2; text-align: center; padding-top: 6px; }
+    .tl-both > span { background: var(--bg); padding: 0 12px; position: relative; }
+    .tl-tag { display: none; }
+  }
 
   /* Contact / footer */
   footer > .wrap { padding-top: clamp(64px, 8vw, 112px); padding-bottom: 40px; display: flex; flex-direction: column; gap: 48px; }
@@ -250,40 +295,44 @@
 <!-- HERO -->
 <header id="top" class="band">
   <div class="wrap topbar">
-    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">J</span><span class="mono">Jack Jiang</span></a>
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">J</span><span class="mono">Erfeng (Jack) Jiang</span></a>
     <nav aria-label="Primary">
       <a class="mono" href="#about">About</a>
       <a class="mono" href="#work">Work</a>
-      <a class="mono" href="#next">Next</a>
+      <a class="mono nav-next" href="#next">Next</a>
       <a class="mono" href="#timeline">Timeline</a>
       <a class="mono" href="#contact">Contact</a>
     </nav>
   </div>
 
   <div class="wrap hero">
-    <p class="mono eyebrow">Saxophonist and builder</p>
-    <h1>I play classical saxophone, and I start things.</h1>
+    <div class="hero-top">
+      <p class="mono eyebrow">Saxophonist and builder</p>
+      <h1>I play classical saxophone, and I start things.</h1>
+      <img class="portrait" data-optional src="images/profile.jpg" alt="Jack (Erfeng) Jiang" width="1135" height="1600">
+    </div>
     <div class="hero-row">
       <div class="hero-text">
-        <p class="hero-lede">I'm Jack (Erfeng) Jiang. I help build and test Rigo, an AI phone-answering and booking system that runs on live LLM voice: I built its pet-industry booking and ordering support, its end-to-end smoke tests and its new customer intake. Before that, I founded my high school's saxophone quartet and took on media for Boundarie.org.</p>
+        <p class="hero-lede">I'm Jack (Erfeng) Jiang. I help build and test Rigo, an AI phone-answering and booking system that runs on live LLM voice: I built its pet-industry booking and ordering support, its end-to-end smoke tests and its new customer intake. Before that, I founded my high school's saxophone quartet and took on media for Boundarie.org, whose TikTok account has reached 3 million likes.</p>
         <p class="hero-meta">First-year at the University of Illinois Urbana-Champaign · B.M. Music Performance (Saxophone), Computer Science minor</p>
       </div>
       <div class="btns">
         <a class="btn solid" href="#work">See the work
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn ghost" href="[YOUTUBE_CHANNEL_URL]">
+        <a class="btn ghost" href="#glazunov-video" id="hear-me-play">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>Hear me play</a>
       </div>
     </div>
   </div>
 
-  <!-- Proof row on a staff -->
+  <!-- Stat tiles on a staff; each links to its card -->
   <div class="wrap">
-    <ul class="proof" aria-label="Highlights">
-      <li><span class="mono sm">Build &amp; test · 2026–now</span><b>Rigo Smart Booking System</b></li>
-      <li><span class="mono sm">Founder · 2025–26</span><b>Palo Alto High School Saxophone Quartet</b></li>
-      <li><span class="mono sm">Media Director · 2025–now</span><b>Boundarie.org</b></li>
-      <li><span class="mono sm">Concerto soloist · 2026</span><b>Glazunov Saxophone Concerto</b></li>
+    <ul class="proof" aria-label="At a glance">
+      <li><a href="#performance"><b>Age 11</b><span>Started saxophone, self-taught at first</span></a></li>
+      <li><a href="#performance"><b>~1 year</b><span>Private study before the University of Illinois saxophone studio</span></a></li>
+      <li><a href="#performance"><b>$32,000</b><span>School of Music merit scholarship, up to four years</span></a></li>
+      <li><a href="#rigo"><b>1 <i>→</i> 4</b><span>Rigo: one pet store in trial, three more asking to try it</span></a></li>
+      <li><a href="#boundarie"><b>3M</b><span>TikTok likes on the Boundarie.org account I create media for</span></a></li>
     </ul>
   </div>
   <div class="staff" aria-hidden="true">
@@ -297,16 +346,16 @@
 
 <main id="main">
 
-  <!-- 01 ABOUT -->
+  <!-- ABOUT -->
   <section id="about" aria-labelledby="about-title">
     <div class="wrap split">
       <div class="side">
-        <span class="mono sec-num">01 — About</span>
+        <span class="mono sec-num">About</span>
         <h2 id="about-title">Music first, then code.</h2>
       </div>
       <div class="main">
-        <p class="about-lede">I first busked with my saxophone in Boston when I was twelve. Eight years in, I've gone from jazz to classical, studying with Dr. Michael Hernandez and Johnny Selmer, and I also play clarinet and bass guitar and write music.</p>
-        <p class="about-body">When something starts to feel comfortable, I look for the harder room: the SJSU Saxophone Ensemble, IU Jacobs, a concerto solo. Code is the newest of those rooms. I taught myself Python, learned Java, and now spend my time inside a real AI product, finding what breaks and building what's missing.</p>
+        <p class="about-lede">I first busked with my saxophone in Boston when I was twelve. Eight years in, I've gone from jazz to classical, studying with Dr. Michael Hernandez and Johnny Selmer and now with Dr. Nicki Roman at the University of Illinois, and I also play clarinet, guitar and bass guitar, and write music.</p>
+        <p class="about-body">When something starts to feel comfortable, I look for the harder room: the SJSU Saxophone Ensemble, IU Jacobs, the Glazunov concerto, a music major at the University of Illinois. Code is the newest of those rooms. I taught myself Python, learned Java, and now spend my time inside a real AI product, finding ways to make a job more efficient.</p>
         <ul class="edu" aria-label="Education">
           <li>
             <span class="mono sm muted">2026 – expected 2030</span>
@@ -323,184 +372,309 @@
           <li>Classical &amp; jazz saxophone</li>
           <li>Composition</li>
           <li>AI</li>
-          <li>Startups &amp; venture</li>
-          <li>English · <span lang="zh">中文</span></li>
+          <li>Startups</li>
+          <li>Bilingual: English and Mandarin</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 02 WORK -->
+  <!-- WORK
+       Each card: Role · Dates | Why I started it | What I did | Challenge | What I learned | Where it is now | Media | Links -->
   <section id="work" aria-labelledby="work-title">
     <div class="wrap">
       <div class="work-head">
         <div>
-          <span class="mono sec-num">02 — Work</span>
+          <span class="mono sec-num">Work</span>
           <h2 id="work-title">Things I build and start</h2>
         </div>
         <p>Each piece answers three questions: why I started it, what I did myself, and where it is now.</p>
       </div>
 
       <!-- A) Rigo, featured full width -->
-      <article class="card feature" aria-labelledby="p-rigo">
+      <article class="card feature" id="rigo" aria-labelledby="p-rigo">
         <div class="col">
-          <div class="card-top"><span class="letter" aria-hidden="true">A</span><span class="mono sm muted">Software · AI · Main project</span></div>
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Software · AI · Main project</span></div>
           <div class="card-title">
             <h3 id="p-rigo">Rigo Smart Booking System</h3>
             <p class="role">Product development &amp; testing · July 2026 – now</p>
           </div>
-          <p class="card-lede">An AI that answers a local business's phone in English, Mandarin, Cantonese and Spanish, takes reservations and takeout orders, and texts every booking to the guest and the shop. It's live with trial customers now.</p>
+          <p class="card-lede">An AI that answers a local business's phone in English, Mandarin, Cantonese and Spanish, takes reservations and orders, and texts every booking to the guest and the shop. It's live with trial customers now.</p>
           <dl class="fields">
-            <div><dt class="mono sm">Why I started it</dt><dd><span class="ph">[WRITE: what made you want in — the problem you saw for small shops]</span></dd></div>
-            <div><dt class="mono sm">What I did</dt><dd><ul>
-              <li><strong>Pet-industry support.</strong> Built booking and take-order support for pet businesses, plus a dedicated test phone line to try it on.</li>
-              <li><strong>L3 end-to-end smoke tests.</strong> L1 checks one piece on its own, like a single function or prompt. L2 checks that services work together, like the booking API and the text sender. My L3 tests place a real call on the test line and follow it all the way: the AI's voice, the booking saved, the texts sent.</li>
-              <li><strong>tryrigo.com redesign.</strong> Redesigned and polished the site's UI.</li>
-              <li><strong>New customer intake form.</strong> Built the application form new businesses use to sign up.</li>
-              <li>Tested and debugged the platform and reported issues to the development team.</li>
-            </ul></dd></div>
-            <div><dt class="mono sm">Where it is now</dt><dd>Live with trial customers <span class="ph">[CONFIRM: how many]</span>, and the pet-industry support I built is now live in trial with pet businesses. <span class="ph">[WRITE: one bug your L3 tests caught]</span></dd></div>
+            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
+              <p data-todo="rigo-why">[WRITE: what made you want in — the problem you saw for small shops]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I did</dt><dd>
+              <ul>
+                <li><strong>Pet-industry support.</strong> Built booking and take-order support for pet businesses, plus a dedicated test phone line to try it on.</li>
+                <li><strong>L3 end-to-end smoke tests.</strong> L1 checks one piece on its own, like a single function or prompt. L2 checks that services work together, like the booking API and the text sender. My L3 tests place a real call on the test line and follow it all the way: the AI's voice, the booking saved, the texts sent.</li>
+                <li><strong>Multilingual testing.</strong> Tested the call flows across the languages Rigo answers in.</li>
+                <li><strong>tryrigo.com redesign.</strong> Redesigned and polished the site's UI.</li>
+                <li><strong>New customer intake form.</strong> Built the application form new businesses use to sign up.</li>
+                <li>Tested and debugged the platform. At first I reported issues to the development team; now I fix them myself.</li>
+              </ul>
+              <p data-todo="rigo-bug">[WRITE: one bug your L3 tests caught and how you fixed it]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Challenge</dt><dd>
+              <p data-todo="rigo-challenge">[WRITE: the hardest problem you hit on Rigo]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I learned</dt><dd>
+              <p data-todo="rigo-learned">[WRITE: what you learned building and testing Rigo]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Where it is now</dt><dd>
+              <p>In trial with one pet store; three more businesses have asked to try it.</p>
+            </dd></div>
           </dl>
-          <div class="links">
+          <div class="links group">
             <a class="ext" href="https://tryrigo.com">tryrigo.com
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
             <a class="ext" href="https://tryrigo.com/apply/">Intake form
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-            <a class="ext" href="https://github.com/Jackatstage">GitHub <span class="ph">[ADD: Rigo repo link, if public]</span></a>
+            <a class="ext" data-todo="rigo-github" href="[ADD: Rigo GitHub repo URL, if public]">GitHub
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
           </div>
         </div>
-        <!-- Screenshots must use test data only, no real customer data -->
-        <div class="shots">
-          <figure data-file="images/rigo-1.png">
-            <img src="images/rigo-1.png" alt="tryrigo.com home page: Never miss a call, with a live call transcript confirming a table for four" loading="lazy" width="1600" height="1200">
+        <div class="media-col">
+          <!-- Screenshots must use test data only, no real customer data -->
+          <figure class="full" data-file="images/rigo.png">
+            <a href="https://tryrigo.com"><img src="images/rigo.png" alt="tryrigo.com home page: Never miss a call" loading="lazy" width="1474" height="1446"></a>
             <figcaption class="mono xs">tryrigo.com · redesigned home page</figcaption>
           </figure>
-          <figure data-file="images/rigo-2.png">
-            <img src="images/rigo-2.png" alt="Example conversations: a Mandarin takeout order, a Cantonese reservation and a Spanish hand-off to a manager" loading="lazy" width="1600" height="1200">
-            <figcaption class="mono xs">Takeout, reservations, hand-off</figcaption>
-          </figure>
-          <figure data-file="images/rigo-3.png">
-            <img src="images/rigo-3.png" alt="The new customer intake form, asking for business name, type, contact and role" loading="lazy" width="1600" height="1200">
-            <figcaption class="mono xs">New customer intake form</figcaption>
-          </figure>
+          <div class="diagrams">
+            <figure>
+              <svg class="dia" viewBox="0 0 320 290" role="img" aria-labelledby="dia-flow-t dia-flow-d">
+                <title id="dia-flow-t">Rigo call flow</title>
+                <desc id="dia-flow-d">A caller reaches the AI voice agent, which answers in English, Mandarin, Cantonese or Spanish. The booking or order is saved, then texts go to the guest and the shop. When needed, the call is handed off to a manager.</desc>
+                <rect class="box" x="20" y="8" width="180" height="38" rx="6"/>
+                <text class="b" x="110" y="32" text-anchor="middle">Caller</text>
+                <line class="arr" x1="110" y1="46" x2="110" y2="63"/><polygon class="head" points="105,62 115,62 110,70"/>
+                <rect class="hi" x="20" y="70" width="180" height="66" rx="6"/>
+                <text class="b" x="110" y="93" text-anchor="middle">AI voice agent</text>
+                <text class="sm" x="110" y="111" text-anchor="middle">English · Mandarin</text>
+                <text class="sm" x="110" y="126" text-anchor="middle">Cantonese · Spanish</text>
+                <line class="arr" x1="110" y1="136" x2="110" y2="153"/><polygon class="head" points="105,152 115,152 110,160"/>
+                <rect class="box" x="20" y="160" width="180" height="50" rx="6"/>
+                <text x="110" y="181" text-anchor="middle">Booking or order</text>
+                <text x="110" y="198" text-anchor="middle">saved</text>
+                <line class="arr" x1="110" y1="210" x2="110" y2="227"/><polygon class="head" points="105,226 115,226 110,234"/>
+                <rect class="box" x="20" y="234" width="180" height="50" rx="6"/>
+                <text x="110" y="255" text-anchor="middle">Texts to guest</text>
+                <text x="110" y="272" text-anchor="middle">and shop</text>
+                <line class="arr dashed" x1="200" y1="103" x2="221" y2="103"/><polygon class="head" points="220,98 220,108 228,103"/>
+                <rect class="box dashed" x="228" y="78" width="88" height="50" rx="6"/>
+                <text class="b" x="272" y="99" text-anchor="middle">Hand-off</text>
+                <text class="sm" x="272" y="116" text-anchor="middle">to a manager</text>
+                <text class="sm" x="272" y="146" text-anchor="middle">when needed</text>
+              </svg>
+              <figcaption class="mono xs">Call flow</figcaption>
+            </figure>
+            <figure>
+              <svg class="dia" viewBox="0 0 320 250" role="img" aria-labelledby="dia-tests-t dia-tests-d">
+                <title id="dia-tests-t">Rigo test levels</title>
+                <desc id="dia-tests-d">Three nested levels. L1 tests one piece, such as a function or prompt. L2 tests services together, such as the booking API and the text sender. L3, my tests, places a real phone call and follows it end to end.</desc>
+                <rect class="hi" x="8" y="8" width="304" height="234" rx="8"/>
+                <text class="b" x="24" y="32">L3 · a real phone call, end to end</text>
+                <text class="acc" x="24" y="50">my tests</text>
+                <rect class="box" x="24" y="66" width="272" height="160" rx="6"/>
+                <text class="b" x="40" y="90">L2 · services together</text>
+                <text class="sm" x="40" y="108">booking API + text sender</text>
+                <rect class="low" x="40" y="124" width="240" height="86" rx="6"/>
+                <text class="b" x="56" y="150">L1 · one piece</text>
+                <text class="sm" x="56" y="168">a function or prompt</text>
+              </svg>
+              <figcaption class="mono xs">Test levels</figcaption>
+            </figure>
+          </div>
         </div>
       </article>
 
       <!-- B–G -->
       <div class="grid">
 
-        <!-- B) Paly Saxophone Quartet -->
-        <article class="card solid" aria-labelledby="p-quartet">
-          <div class="card-top"><span class="letter" aria-hidden="true">B</span><span class="mono sm muted">Ensemble · 2025–2026</span></div>
-          <div class="card-title">
-            <h3 id="p-quartet">Palo Alto High School Saxophone Quartet</h3>
-            <p class="role">Founder</p>
-          </div>
-          <div class="yt" data-src="[YOUTUBE_URL_QUARTET]" data-title="Palo Alto High School Saxophone Quartet">
-            <button type="button"><span>Video · quartet performance<span class="src"></span></span></button>
-          </div>
-          <dl class="fields">
-            <div><dt class="mono sm">Why I started it</dt><dd><span class="ph">[WRITE]</span></dd></div>
-            <div><dt class="mono sm">What I did</dt><dd>Founded and organized the group: chose the repertoire, including Patachich's Quartetto per Sassofoni and Tchaikovsky's Andante Cantabile, coordinated rehearsals and set up community performances.</dd></div>
-            <div><dt class="mono sm">Where it is now</dt><dd><span class="ph">[WRITE: performances given; who runs it now]</span></dd></div>
-          </dl>
-        </article>
-
-        <!-- C) Boundarie.org -->
-        <article class="card solid" aria-labelledby="p-boundarie">
-          <div class="card-top"><span class="letter" aria-hidden="true">C</span><span class="mono sm muted">Media · Nonprofit · 2025–now</span></div>
-          <div class="card-title">
-            <h3 id="p-boundarie">Boundarie.org</h3>
-            <p class="role">Media Director</p>
-          </div>
-          <p>I lead media for a nonprofit that has helped hundreds of students around the world pursue their dream universities.</p>
-          <dl class="fields">
-            <div><dt class="mono sm">What I did</dt><dd>Content creation, outreach campaigns across social platforms, and reading the engagement data to grow reach.</dd></div>
-            <div><dt class="mono sm">Where it is now</dt><dd><span class="ph">[WRITE: one number — reach, followers, or a campaign result]</span></dd></div>
-          </dl>
-          <ul class="tools" aria-label="Tools">
-            <li class="mono sm">SoundTrap</li>
-            <li class="mono sm">Logic Pro</li>
-            <li class="mono sm">GarageBand</li>
-            <li class="mono sm">Canva</li>
-          </ul>
-          <a class="ext" href="https://boundarie.org">boundarie.org
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-        </article>
-
-        <!-- D) Click, Clack, Moo -->
-        <article class="card" aria-labelledby="p-cows">
-          <div class="card-top"><span class="letter" aria-hidden="true">D</span><span class="mono sm muted">Composition · 2025</span></div>
-          <div class="card-title">
-            <h3 id="p-cows">Click, Clack, Moo: Cows That Type</h3>
-            <p class="role">Co-composer <span class="ph">[CONFIRM: wrote the woodwind parts]</span> · with <span class="ph">[CONFIRM: co-composer credit]</span></p>
-          </div>
-          <figure class="wide" data-file="images/cows-score-p1.png">
-            <img src="images/cows-score-p1.png" alt="First page of the score for Click, Clack, Moo: Cows That Type" loading="lazy" width="1600" height="900">
-          </figure>
-          <p>An original piece for ten instruments and a narrator, with sticky-note percussion, a straw oboe and sul ponticello glissandi.</p>
-          <dl class="fields">
-            <div><dt class="mono sm">Where it is now</dt><dd><span class="ph">[WRITE: premiered? where, for whom?]</span></dd></div>
-          </dl>
-          <!-- CONFIRM: co-composer agrees to publishing the full score before uploading files/cows-score.pdf -->
-          <a class="ext" href="files/cows-score.pdf">Full score (PDF)
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-        </article>
-
-        <!-- E) Glazunov -->
-        <article class="card" aria-labelledby="p-glazunov">
-          <div class="card-top"><span class="letter" aria-hidden="true">E</span><span class="mono sm muted">Performance · 2025–2026</span></div>
+        <!-- B) Glazunov / performance -->
+        <article class="card" id="performance" aria-labelledby="p-glazunov">
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Performance · 2025–2026</span></div>
           <div class="card-title">
             <h3 id="p-glazunov">Glazunov Saxophone Concerto</h3>
-            <p class="role">Soloist · Concerto in E-flat major, Op. 109</p>
+            <p class="role">Performance · Glazunov, Concerto in E-flat major, Op. 109</p>
           </div>
-          <ul class="bullets">
-            <li>Palo Alto High School Concerto Soloist</li>
-            <li>First chair saxophone, Paly Honor Wind Ensemble</li>
-            <li>University of Illinois School of Music merit scholarship, classical saxophone</li>
-          </ul>
-          <div class="media-3">
-            <div class="yt sq" data-src="[YOUTUBE_URL_GLAZUNOV]" data-title="Glazunov Saxophone Concerto — Jack (Erfeng) Jiang">
-              <button type="button"><span>Video · Glazunov<span class="src"></span></span></button>
-            </div>
-            <div class="yt sq" data-src="[YOUTUBE_URL_ETUDE]" data-title="Ferling Etude No. 9 — Jack (Erfeng) Jiang">
-              <button type="button"><span>Video · Ferling Etude No. 9<span class="src"></span></span></button>
-            </div>
-            <figure data-file="images/iu-program-2025.png">
-              <a href="images/iu-program-2025.png"><img src="images/iu-program-2025.png" alt="Concert program, IU Jacobs Summer Saxophone Academy 2025" loading="lazy" width="1200" height="900"></a>
+          <dl class="fields">
+            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
+              <p data-todo="glazunov-why">[WRITE: why you chose the Glazunov concerto]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I did</dt><dd>
+              <ul class="bullets">
+                <li>Palo Alto High School Concerto, saxophone first chair</li>
+                <li>First chair saxophone, Paly Honor Wind Ensemble</li>
+                <li>University of Illinois School of Music merit scholarship, awarded on my classical saxophone audition: $8,000 per year, renewable, up to $32,000 over four years</li>
+              </ul>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Challenge</dt><dd>
+              <p data-todo="glazunov-challenge">[WRITE: the hardest passage or problem in preparing it]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I learned</dt><dd>
+              <p data-todo="glazunov-learned">[WRITE: what you learned preparing and performing it]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Where it is now</dt><dd>
+              <p data-todo="glazunov-now">[WRITE: where your playing is now]</p>
+            </dd></div>
+          </dl>
+          <div class="card-title" id="training">
+            <span class="mono sm muted">Training</span>
+            <ul class="bullets">
+              <li>Started saxophone at 11; self-taught and school bands at first</li>
+              <li>Private study with Dr. Michael Hernandez (San Jose State University) and Johnny Selmer</li>
+              <li>Ensemble concerts with the SJSU Saxophone Ensemble and SJSU Honor Wind Ensemble, 2025–2026</li>
+              <li>Mana Saxophone Institute at SJSU, June 2025: a week-long intensive with chamber music and saxophone orchestra · <a href="https://www.instagram.com/p/DXQhdcrlKN1/">About MSI</a></li>
+              <li>Occasional coaching with saxophonist Valentin Kovalev (First Prize, 2022 Naumburg International Saxophone Competition)</li>
+            </ul>
+            <figure class="photo" data-optional data-file="images/kovalev.jpg">
+              <img src="images/kovalev.jpg" alt="Jack Jiang with saxophonist Valentin Kovalev" loading="lazy" width="1143" height="1600">
+              <figcaption class="mono xs">With saxophonist Valentin Kovalev</figcaption>
             </figure>
           </div>
           <div class="card-title">
             <span class="mono sm muted">Also in my repertoire</span>
             <p class="small-note">Creston Sonata · Bonneau, Caprice en forme de valse · Handel Sonata · Eccles Sonata</p>
           </div>
-        </article>
-
-        <!-- F) Community -->
-        <article class="card" aria-labelledby="p-service">
-          <div class="card-top"><span class="letter" aria-hidden="true">F</span><span class="mono sm muted">Service · 2024–2026</span></div>
-          <div class="card-title">
-            <h3 id="p-service">Playing for the community</h3>
-            <p class="role">Volunteer performer · Section leader</p>
+          <div class="media-3 group">
+            <figure id="glazunov-video">
+              <div class="yt sq" data-src="https://youtu.be/ChJYUra8ZLk" data-autoplay data-title="Glazunov Concerto, December 1, 2025 — Jack (Erfeng) Jiang">
+                <button type="button"><span>Video · Glazunov<span class="src"></span></span></button>
+              </div>
+              <figcaption class="mono xs">Glazunov Concerto, December 1, 2025</figcaption>
+            </figure>
+            <figure>
+              <div class="yt sq" data-src="https://www.youtube.com/watch?v=9tsXuT0kYWY" data-title="Indiana University Jacobs Summer Saxophone Academy, 2025">
+                <button type="button"><span>Video<span class="src"></span></span></button>
+              </div>
+              <figcaption class="mono xs">Indiana University Jacobs Summer Saxophone Academy, 2025</figcaption>
+            </figure>
+            <figure>
+              <div class="yt sq" data-src="https://youtu.be/gdoG8nWaAbc" data-title="Mana Saxophone Institute chamber recital, SJSU, June 2025 — Jack (Erfeng) Jiang">
+                <button type="button"><span>Video<span class="src"></span></span></button>
+              </div>
+              <figcaption class="mono xs">Mana Saxophone Institute at SJSU, chamber recital, June 2025</figcaption>
+            </figure>
+            <figure data-todo="ferling-video">
+              <div class="yt sq" data-src="[ADD: Ferling Etude No. 9 YouTube URL]" data-title="Ferling Etude No. 9 — Jack (Erfeng) Jiang">
+                <button type="button"><span>Video · Ferling Etude No. 9<span class="src"></span></span></button>
+              </div>
+            </figure>
+            <figure data-optional data-file="images/iu-program-2025.png">
+              <a href="images/iu-program-2025.png"><img src="images/iu-program-2025.png" alt="Concert program, IU Jacobs Summer Saxophone Academy 2025" loading="lazy" width="1200" height="900"></a>
+            </figure>
           </div>
-          <ul class="rows">
-            <li><b>Senior care homes &amp; local fundraisers</b><span class="d">Volunteer performer with Right At Home Peninsula, 2024–2026</span></li>
-            <li><b>Notes For All · Harmony Ensemble</b><span class="d">Solo, duet and trio performances for two music nonprofits</span></li>
-            <li><b>Section Leader, Paly Wind Ensemble</b><span class="d">Coached the players in my section on technique and musicianship, 2025–2026</span></li>
-          </ul>
-          <p class="small-note">Several hundred hours of volunteer service in all <span class="ph">[CONFIRM: exact total]</span>.</p>
+          <div class="links group">
+            <a class="ext" href="https://www.instagram.com/p/DdqABLmu2te/">University of Illinois studio welcome post
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
         </article>
 
-        <!-- G) Code -->
-        <article class="card" aria-labelledby="p-code">
-          <div class="card-top"><span class="letter" aria-hidden="true">G</span><span class="mono sm muted">Code · 2022–now</span></div>
+        <!-- C) Boundarie.org -->
+        <article class="card solid" id="boundarie" aria-labelledby="p-boundarie">
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Media · Nonprofit · 2025–now</span></div>
+          <div class="card-title">
+            <h3 id="p-boundarie">Boundarie.org</h3>
+            <p class="role">Media Director</p>
+          </div>
+          <p>I lead media for a nonprofit that helps students pursue their dream universities.</p>
+          <dl class="fields">
+            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
+              <p data-todo="boundarie-why">[WRITE: why you took on media for Boundarie.org]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I did</dt><dd>
+              <p>Led the media creation, with original music, for videos posted on TikTok.</p>
+              <p>Content creation, outreach campaigns across social platforms, and reading the engagement data to grow reach.</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Challenge</dt><dd>
+              <p data-todo="boundarie-challenge">[WRITE: the hardest part of the media work]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I learned</dt><dd>
+              <p data-todo="boundarie-learned">[WRITE: what you learned from the engagement data]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Where it is now</dt><dd>
+              <p>15.5K followers and 3 million likes on the TikTok account by October 2026.</p>
+            </dd></div>
+          </dl>
+          <div class="toolset">
+            <span class="mono sm muted">Music tech</span>
+            <ul class="tools" aria-label="Music tech">
+              <li class="mono sm">SoundTrap</li>
+              <li class="mono sm">GarageBand</li>
+            </ul>
+            <span class="mono sm muted">Design</span>
+            <ul class="tools" aria-label="Design">
+              <li class="mono sm">Canva</li>
+            </ul>
+          </div>
+          <figure class="full" data-optional data-file="images/tiktok.png">
+            <a href="https://www.tiktok.com/@boundariecollegeprep"><img src="images/tiktok.png" alt="Boundarie College Prep on TikTok: 15.5K followers, 3M likes" loading="lazy" width="1426" height="594"></a>
+            <figcaption class="mono xs">Boundarie College Prep on TikTok · 3M likes</figcaption>
+          </figure>
+          <div class="links group">
+            <a class="ext" href="https://boundarie.org">boundarie.org
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+            <a class="ext" href="https://www.tiktok.com/@boundariecollegeprep">TikTok
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+            <a class="ext" data-todo="boundarie-instagram" href="[ADD: Instagram URL of the account you produce for]">Instagram
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+          </div>
+        </article>
+
+        <!-- D) Quartets, high school to college (stacked under C, beside B) -->
+        <article class="card" id="quartets" aria-labelledby="p-quartets">
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Ensemble · 2025–now</span></div>
+          <div class="card-title">
+            <h3 id="p-quartets">Saxophone quartets</h3>
+            <p class="role">Founder, Palo Alto High School Saxophone Quartet, 2025–2026</p>
+            <p class="role">Member, Kairos Quartet, University of Illinois School of Music, 2026–now · studio performance Oct 27, 2026</p>
+            <p class="role">Section Leader, Paly Wind Ensemble, 2025–2026</p>
+          </div>
+          <dl class="fields">
+            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
+              <p data-todo="quartet-why">[WRITE: why you founded the Paly quartet]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I did</dt><dd>
+              <p><strong>Paly Saxophone Quartet.</strong> Founded and organized the group: chose the repertoire, including Patachich's Quartetto per Sassofoni and Tchaikovsky's Andante Cantabile, coordinated rehearsals and set up community performances.</p>
+              <p><strong>Section Leader, Paly Wind Ensemble.</strong> Coached the players in my section on technique and musicianship, 2025–2026.</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Challenge</dt><dd>
+              <p data-todo="quartet-challenge">[WRITE: the hardest part of running the quartet]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I learned</dt><dd>
+              <p data-todo="quartet-learned">[WRITE: what you learned founding and playing in quartets]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Where it is now</dt><dd>
+              <p data-todo="quartet-performances">[WRITE: performances given; who runs the Paly quartet now]</p>
+            </dd></div>
+          </dl>
+          <div class="media-3 group">
+            <figure data-todo="quartet-video">
+              <div class="yt sq" data-src="[ADD: Palo Alto High School Saxophone Quartet YouTube URL]" data-title="Palo Alto High School Saxophone Quartet">
+                <button type="button"><span>Video · Paly quartet<span class="src"></span></span></button>
+              </div>
+              <figcaption class="mono xs">Palo Alto High School Saxophone Quartet</figcaption>
+            </figure>
+            <figure data-todo="kairos-video">
+              <div class="yt sq" data-src="[ADD: Kairos Quartet YouTube URL]" data-title="Kairos Quartet, University of Illinois School of Music">
+                <button type="button"><span>Video · Kairos Quartet<span class="src"></span></span></button>
+              </div>
+              <figcaption class="mono xs">Kairos Quartet, University of Illinois</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- E) Code -->
+        <article class="card" id="code" aria-labelledby="p-code">
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Code · 2022–now</span></div>
           <div class="card-title">
             <h3 id="p-code">Teaching myself to build</h3>
-            <p class="role">Self-directed learning</p>
+            <p class="role">Self-directed learning and school coursework</p>
           </div>
           <ul class="rows pair">
             <li><span>iD Tech “Code Apps with Java” camp</span><span class="mono sm muted">2022</span></li>
-            <li><span>AP Computer Science Principles</span><span class="mono sm muted">AP</span></li>
+            <li><span>AP Computer Science Principles</span><span class="mono sm muted">School course</span></li>
             <li><span>Python: small automation and data scripts</span><span class="mono sm muted">Self-taught</span></li>
             <li><span>Raspberry Pi hardware projects: setup and custom scripts</span><span class="mono sm muted">Team</span></li>
           </ul>
@@ -509,79 +683,181 @@
             <ul class="tools" aria-label="Interests">
               <li class="mono sm">AI in music &amp; audio</li>
               <li class="mono sm">Generative audio</li>
-              <li class="mono sm">Music information retrieval</li>
             </ul>
           </div>
           <!-- Only list repos that have real code or photos -->
-          <div class="links">
-            <a class="ext" href="[GITHUB_REPO_URL_1]">[REPO_NAME_1]</a>
-            <a class="ext" href="[GITHUB_REPO_URL_2]">[REPO_NAME_2]</a>
+          <div class="links group">
+            <a class="ext" data-todo="code-repo-1" href="[ADD: GitHub repo URL 1]">[ADD: repo name 1]</a>
+            <a class="ext" data-todo="code-repo-2" href="[ADD: GitHub repo URL 2]">[ADD: repo name 2]</a>
           </div>
+        </article>
+
+        <!-- F) Community -->
+        <article class="card" id="service" aria-labelledby="p-service">
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Service · 2024–2026</span></div>
+          <div class="card-title">
+            <h3 id="p-service">Playing for the community</h3>
+            <p class="role">Volunteer performer</p>
+          </div>
+          <ul class="rows">
+            <li><b><a href="https://notesforall.my.canva.site/">Notes For All</a></b><span class="d">Student-led 501(c)(3) chamber-music volunteer group in Palo Alto. About 50 hours performing at senior homes hosted by Right At Home Peninsula.</span></li>
+            <li><b><a href="https://www.harmonyensemblecba.org/">Harmony Ensemble</a></b><span class="d">Member, 2025–2026</span></li>
+            <!-- Replaced by the two rows above; kept here in case you want it back:
+            <li><b>Notes For All · Harmony Ensemble</b><span class="d">Solo, duet and trio performances for two music nonprofits</span></li>
+            -->
+          </ul>
+          <p class="small-note" data-todo="service-hours">Several hundred hours of volunteer service in all [CONFIRM: exact total].</p>
+        </article>
+
+        <!-- G) Discord server: all fields still to write, so the whole card is hidden -->
+        <article class="card todo-card" id="discord" aria-labelledby="p-discord">
+          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Community · Discord</span></div>
+          <div class="card-title">
+            <h3 id="p-discord">Discord server</h3>
+            <p class="role" data-todo="discord-role">[WRITE: your role · dates]</p>
+          </div>
+          <dl class="fields">
+            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
+              <p data-todo="discord-purpose">[WRITE: what the server is for, and why you started it]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I did</dt><dd>
+              <p data-todo="discord-did">[WRITE: what you did: set-up, moderation, bots, events]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Challenge</dt><dd>
+              <p data-todo="discord-challenge">[WRITE: the hardest part of running it]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">What I learned</dt><dd>
+              <p data-todo="discord-learned">[WRITE: what you learned running it]</p>
+            </dd></div>
+            <div class="field"><dt class="mono sm">Where it is now</dt><dd>
+              <p data-todo="discord-members">[WRITE: number of members]</p>
+            </dd></div>
+          </dl>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 03 NEXT -->
+  <!-- NEXT: hidden until at least one of its fields is written -->
   <section id="next" class="band" aria-labelledby="next-title">
     <div class="wrap split">
       <div class="side">
-        <span class="mono sec-num">03 — Next</span>
+        <span class="mono sec-num">Next</span>
         <h2 id="next-title">What I want to build</h2>
       </div>
       <div class="main" style="gap:32px">
-        <p class="next-lede"><span class="ph">[WRITE: 2–3 sentences on the project you'd start next. Keep it the same idea as your one-minute video.]</span></p>
-        <div class="card-title" style="gap:12px">
-          <span class="mono sm" style="color:var(--band-muted)">Questions I can't leave alone</span>
-          <ol class="questions">
-            <li><span class="mono" aria-hidden="true">i</span><span class="ph">[WRITE: question 1]</span></li>
-            <li><span class="mono" aria-hidden="true">ii</span><span class="ph">[WRITE: question 2]</span></li>
-            <li><span class="mono" aria-hidden="true">iii</span><span class="ph">[WRITE: question 3]</span></li>
+        <p class="next-lede" data-todo="next-build">[WRITE: 2–3 sentences, the same idea as your video]</p>
+        <div class="card-title notes-block" style="gap:12px">
+          <span class="mono sm" style="color:var(--band-muted)">Notes</span>
+          <ol class="questions notes">
+            <li data-todo="note-1"><span class="mono" aria-hidden="true">i</span><span>[WRITE: what practicing saxophone has in common with testing software]</span></li>
+            <li data-todo="note-2"><span class="mono" aria-hidden="true">ii</span><span>[WRITE: what a merchant taught you about building AI]</span></li>
+            <li data-todo="note-3"><span class="mono" aria-hidden="true">iii</span><span>[WRITE: optional]</span></li>
           </ol>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 04 TIMELINE -->
+  <!-- TIMELINE: Music (left) and Code & AI (right), newest first -->
   <section id="timeline" aria-labelledby="timeline-title">
     <div class="wrap split">
       <div class="side">
-        <span class="mono sec-num">04 — Timeline</span>
+        <span class="mono sec-num">Timeline</span>
         <h2 id="timeline-title">How I got here</h2>
       </div>
-      <ol class="timeline main" style="gap:0">
-        <li><span class="mono y">2026</span><span><strong>University of Illinois School of Music</strong> · merit scholarship, classical saxophone</span></li>
-        <li><span class="mono y">2026</span><span><strong>Joined Rigo</strong> · building and testing the product</span></li>
-        <li><span class="mono y">2026</span><span><strong>Palo Alto High School Concerto Soloist</strong> · Glazunov Saxophone Concerto</span></li>
-        <li><span class="mono y">2025–26</span><span><strong>First chair, Paly Honor Wind Ensemble</strong> · and section leader</span></li>
-        <li><span class="mono y">2025</span><span><strong>Founded the Paly Saxophone Quartet</strong> · became Media Director at Boundarie.org</span></li>
-        <li><span class="mono y">2025</span><span><strong>IU Jacobs Summer Saxophone Academy</strong> · first-chair alto, Cream Ensemble · and SJSU's Mana Saxophone Institute</span></li>
-        <li><span class="mono y">2025–26</span><span><strong>SJSU Saxophone and Honor Wind Ensembles</strong></span></li>
-        <!-- OPTIONAL: delete this item if you don't want it -->
-        <li><span class="mono y">2024–26</span><span><strong>Volunteer performer</strong> · senior care homes and local fundraisers, several hundred hours <span class="ph">[CONFIRM: total]</span> <span class="ph">[OPTIONAL]</span></span></li>
-        <li><span class="mono y">2023</span><span><strong>NYC St. Patrick's Day Parade</strong> · with the JROTC marching band</span></li>
-        <li><span class="mono y">2022–23</span><span><strong>Virginia All-State</strong> · and the Virginia JROTC Military Honor Band</span></li>
-        <li><span class="mono y">2022</span><span><strong>First code</strong> · iD Tech “Code Apps with Java” camp</span></li>
-        <!-- OPTIONAL: delete this item if you don't want it -->
-        <li><span class="mono y">2021</span><span><strong>Extreme Military Challenge</strong> · Cadet Basic Training and Cadet Field Leader Course <span class="ph">[OPTIONAL]</span></span></li>
-      </ol>
+      <div class="main tl" style="gap:0">
+        <div class="tl-head mono sm" aria-hidden="true"><span class="m">Music</span><span class="c">Code &amp; AI</span></div>
+        <ol class="tl-rows">
+          <li class="tl-row tl-shared">
+            <span class="mono tl-y">2026</span>
+            <p class="tl-both"><span><strong>University of Illinois:</strong> Music Performance + Computer Science minor</span></p>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2026</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>Kairos Quartet</strong> · University of Illinois School of Music</li>
+              <li><span class="mono tl-tag">Music</span><strong>University of Illinois School of Music</strong> · merit scholarship, up to $32,000 · <a href="https://www.instagram.com/p/DdqABLmu2te/">Studio welcome post</a></li>
+              <li><span class="mono tl-tag">Music</span><strong>Palo Alto High School Concerto</strong> · saxophone first chair</li>
+            </ul>
+            <ul class="tl-lane tl-code">
+              <li><span class="mono tl-tag">Code</span><strong>Rigo</strong> · pet-industry support, multilingual and L3 end-to-end tests, site redesign, intake form</li>
+            </ul>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2025–26</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>First chair, Paly Honor Wind Ensemble</strong> · section leader</li>
+              <li><span class="mono tl-tag">Music</span><strong>SJSU Saxophone and Honor Wind Ensembles</strong></li>
+            </ul>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2025</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>Founded the Paly Saxophone Quartet</strong></li>
+              <li><span class="mono tl-tag">Music</span><strong>IU Jacobs Summer Saxophone Academy</strong> · first-chair alto, Cream Ensemble</li>
+              <li><span class="mono tl-tag">Music</span><strong>Mana Saxophone Institute at SJSU</strong> · June · <a href="https://www.instagram.com/p/DXQhdcrlKN1/">About MSI</a></li>
+            </ul>
+            <ul class="tl-lane tl-code">
+              <li><span class="mono tl-tag">Code</span><strong>Media Director, Boundarie.org</strong> · music production tools</li>
+            </ul>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2024–26</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>Volunteer performer</strong> · Notes For All, about 50 hours</li>
+            </ul>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2023–26</span>
+            <ul class="tl-lane tl-code">
+              <li><span class="mono tl-tag">Code</span><strong>AP Computer Science Principles</strong> · Palo Alto High School</li>
+            </ul>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2023</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>NYC St. Patrick's Day Parade</strong> · JROTC marching band</li>
+            </ul>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">2022</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>Virginia All-State</strong> · Virginia JROTC Military Honor Band, 2022–23</li>
+            </ul>
+            <ul class="tl-lane tl-code">
+              <li><span class="mono tl-tag">Code</span><strong>First code</strong> · iD Tech “Code Apps with Java”</li>
+            </ul>
+          </li>
+          <!-- Switch: add the word hidden to this <li> (<li hidden class=...>) to hide this row -->
+          <li class="tl-row tl-shared" id="military-challenge">
+            <span class="mono tl-y">2021</span>
+            <p class="tl-both"><span><strong>Extreme Military Challenge</strong> · Cadet Basic Training and Cadet Field Leader Course</span></p>
+          </li>
+          <li class="tl-row">
+            <span class="mono tl-y">Age 11</span>
+            <ul class="tl-lane tl-music">
+              <li><span class="mono tl-tag">Music</span><strong>Started saxophone</strong> · self-taught and school bands at first</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 </main>
 
-<!-- 05 CONTACT -->
+<!-- CONTACT -->
 <footer id="contact" class="band">
   <div class="wrap">
     <div class="contact-head">
-      <span class="mono sec-num">05 — Contact</span>
+      <span class="mono sec-num">Contact</span>
       <h2>Let's make something.</h2>
     </div>
     <ul class="contact-grid" aria-label="Contact and profiles">
       <li><a href="mailto:jackatstage@gmail.com"><span class="mono sm">Email</span><b>jackatstage@gmail.com</b></a></li>
       <li><a href="https://www.linkedin.com/in/erfeng-jiang" rel="me"><span class="mono sm">LinkedIn</span><b>in/erfeng-jiang</b></a></li>
-      <li><a href="[GITHUB_URL]" rel="me"><span class="mono sm">GitHub</span><span class="ph">[GITHUB_URL]</span></a></li>
-      <li><a href="[YOUTUBE_CHANNEL_URL]" rel="me"><span class="mono sm">YouTube</span><span class="ph">[YOUTUBE_CHANNEL_URL]</span></a></li>
+      <li data-todo="contact-github"><a href="[ADD: GitHub profile URL]" rel="me"><span class="mono sm">GitHub</span><b>[ADD: GitHub username]</b></a></li>
+      <li><a href="https://www.youtube.com/@jackjiang4802" rel="me"><span class="mono sm">YouTube</span><b>@jackjiang4802</b></a></li>
     </ul>
     <div class="fine">
       <span>© 2026 Jack (Erfeng) Jiang</span>
@@ -591,19 +867,96 @@
 </footer>
 
 <script>
-  // Click-to-load YouTube: thumbnail first, iframe only after a click.
+  // YouTube. A box marked data-autoplay (the Glazunov video) starts playing when the page opens;
+  // the others show a thumbnail and load only when clicked.
+  // Browsers block sound before the visitor interacts, so it starts muted if needed and turns the sound on
+  // at the visitor's first click, tap or key press anywhere on the page (or via the "Sound on" button).
+  // Only one video plays at a time: when one starts, the rest pause, so the audio never overlaps.
   function ytId(url) {
     var m = (url || "").match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/);
     return m ? m[1] : null;
   }
+  var players = [], ytWaiting = null;
+  function withYouTubeAPI(cb) {
+    if (window.YT && YT.Player) return cb(true);
+    if (ytWaiting) return ytWaiting.push(cb);
+    ytWaiting = [cb];
+    window.onYouTubeIframeAPIReady = function () { ytWaiting.forEach(function (f) { f(true); }); };
+    var s = document.createElement("script");
+    s.src = "https://www.youtube.com/iframe_api";
+    s.onerror = function () { ytWaiting.forEach(function (f) { f(false); }); };
+    document.head.appendChild(s);
+  }
+  function loadVideo(box, id, play, fromClick) {
+    var holder = document.createElement("div");
+    box.replaceChildren(holder);
+    withYouTubeAPI(function (ok) {
+      if (!ok) {
+        // API blocked: plain embed.
+        var f = document.createElement("iframe");
+        f.src = "https://www.youtube-nocookie.com/embed/" + id + "?rel=0&playsinline=1" + (play ? "&autoplay=1" + (fromClick ? "" : "&mute=1") : "");
+        f.title = box.dataset.title;
+        f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        f.allowFullscreen = true;
+        box.replaceChildren(f);
+        return;
+      }
+      var unmute = null;
+      function dropUnmute() { if (unmute) { unmute.remove(); unmute = null; } }
+      box.ytPlayer = new YT.Player(holder, {
+        host: "https://www.youtube-nocookie.com",
+        videoId: id,
+        playerVars: { autoplay: play ? 1 : 0, rel: 0, playsinline: 1 },
+        events: {
+          onReady: function (e) {
+            var p = e.target, f = p.getIframe();
+            f.title = box.dataset.title;
+            if (fromClick) f.focus();
+            if (!play || fromClick) return;
+            p.playVideo();
+            // Sound blocked by the browser: play muted and offer a button to turn sound on.
+            setTimeout(function () {
+              var st = p.getPlayerState();
+              if (st === YT.PlayerState.PLAYING || st === YT.PlayerState.BUFFERING) return;
+              p.mute();
+              p.playVideo();
+              unmute = document.createElement("button");
+              unmute.type = "button";
+              unmute.className = "unmute";
+              unmute.textContent = "Sound on";
+              function soundOn() {
+                ["pointerdown", "keydown", "touchend"].forEach(function (t) { document.removeEventListener(t, soundOn, true); });
+                if (!unmute) return;
+                p.unMute(); p.setVolume(100);
+                if (p.getPlayerState() !== YT.PlayerState.PAUSED) p.playVideo();
+                dropUnmute();
+              }
+              unmute.addEventListener("click", soundOn);
+              ["pointerdown", "keydown", "touchend"].forEach(function (t) { document.addEventListener(t, soundOn, true); });
+              box.appendChild(unmute);
+            }, 1200);
+          },
+          onStateChange: function (e) {
+            if (unmute && !e.target.isMuted()) dropUnmute();
+            if (e.data !== YT.PlayerState.PLAYING) return;
+            players.forEach(function (p) { if (p !== e.target && p.pauseVideo) p.pauseVideo(); });
+          }
+        }
+      });
+      players.push(box.ytPlayer);
+    });
+  }
+  var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll(".yt").forEach(function (box) {
     var btn = box.querySelector("button");
     var id = ytId(box.dataset.src);
     if (!id) {
       box.classList.add("empty");
       btn.disabled = true;
-      var src = btn.querySelector(".src");
-      if (src) src.textContent = box.dataset.src;
+      return;
+    }
+    if (box.hasAttribute("data-autoplay") && !calm && !box.closest("[data-todo]")) {
+      loadVideo(box, id, true, false);
       return;
     }
     var thumb = document.createElement("img");
@@ -612,22 +965,27 @@
     thumb.loading = "lazy";
     box.insertBefore(thumb, btn);
     btn.setAttribute("aria-label", "Play video: " + box.dataset.title);
-    btn.addEventListener("click", function () {
-      var f = document.createElement("iframe");
-      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
-      f.title = box.dataset.title;
-      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      f.allowFullscreen = true;
-      box.replaceChildren(f);
-      f.focus();
-    });
+    btn.addEventListener("click", function () { loadVideo(box, id, true, true); });
   });
 
-  // Show a labelled box for any image not uploaded yet.
-  document.querySelectorAll("figure[data-file] img").forEach(function (img) {
-    function miss() { img.closest("figure").classList.add("missing"); }
-    if (img.complete && img.naturalWidth === 0) miss();
-    img.addEventListener("error", miss);
+  // "Hear me play" scrolls to the Glazunov video and plays it with sound (the click counts as the visitor's interaction).
+  document.getElementById("hear-me-play").addEventListener("click", function () {
+    var box = document.querySelector("#glazunov-video .yt");
+    var start = box.querySelector("button:not(.unmute)");
+    if (start) { start.click(); return; }
+    var p = box.ytPlayer;
+    if (p && p.unMute) { p.unMute(); p.setVolume(100); p.playVideo(); }
+  });
+
+  // Optional photos: shown only once the file actually loads, so a missing file leaves no gap.
+  document.querySelectorAll("[data-optional]").forEach(function (el) {
+    var src = el.getAttribute("src") || el.dataset.file;
+    var probe = new Image();
+    probe.onload = function () {
+      el.classList.add("ok");
+      if (el.classList.contains("portrait")) el.closest(".hero-top").classList.add("has-photo");
+    };
+    probe.src = src;
   });
 </script>
 </body>
