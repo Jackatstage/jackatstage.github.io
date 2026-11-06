@@ -1,35 +1,35 @@
 # jackatstage.github.io
 
-Jack (Erfeng) Jiang 的个人作品集网站，由 GitHub Pages 托管：<https://jackatstage.github.io>
+Portfolio site for Jack (Erfeng) Jiang, hosted on GitHub Pages: <https://jackatstage.github.io>
 
-## 本地开发
+## Local development
 
-需要 [Node.js](https://nodejs.org/) 18 或以上版本。
+Requires [Node.js](https://nodejs.org/) 18 or later.
 
 ```bash
-npm install      # 第一次运行时安装开发工具
-npm run dev      # 启动本地服务器 http://localhost:3000 ，保存文件后浏览器自动刷新
+npm install      # first time only: install the dev tools
+npm run dev      # start a local server at http://localhost:3000 that reloads on save
 ```
 
-## 常用命令
+## Commands
 
-| 命令               | 作用                                              |
-| ------------------ | ------------------------------------------------- |
-| `npm run dev`      | 本地预览，带自动刷新（live reload）               |
-| `npm run validate` | 检查 HTML 是否有错误                              |
-| `npm run format`   | 用 Prettier 统一代码格式                          |
-| `npm run check`    | 发布前检查（GitHub Actions 每次推送也会自动运行） |
+| Command            | What it does                                          |
+| ------------------ | ----------------------------------------------------- |
+| `npm run dev`      | Local preview with live reload                        |
+| `npm run validate` | Check the HTML for errors                             |
+| `npm run format`   | Format the code with Prettier                         |
+| `npm run check`    | Pre-publish check (also runs on every push to GitHub) |
 
-## 项目结构
+## Project layout
 
 ```
-index.html            整个网站（HTML + CSS + JS 都在这一个文件里）
-TODO.md               还没写完的内容清单（不会发布）
-images/               图片资源（例如 og-image.png 分享预览图）
-_config.yml           GitHub Pages 设置：TODO.md、README.md 等文件不会发布到网站上
-.github/workflows/    自动检查
+index.html            The whole site (HTML, CSS and JS in one file)
+images/               Photos and other images
+TODO.md               Sections still to write (not published)
+_config.yml           GitHub Pages settings: keeps TODO.md, README.md, etc. off the site
+.github/workflows/    Automatic checks
 ```
 
-## 发布
+## Publishing
 
-把改动合并到 `main` 分支并推送，GitHub Pages 会自动更新网站（通常一两分钟内生效）。
+Merge changes into `main` and push. GitHub Pages updates the site within a minute or two.
