@@ -24,8 +24,9 @@ npm run dev      # 启动本地服务器 http://localhost:3000 ，保存文件�
 
 ```
 index.html            整个网站（HTML + CSS + JS 都在这一个文件里）
+TODO.md               还没写完的内容清单（不会发布）
 images/               图片资源（例如 og-image.png 分享预览图）
-.nojekyll             让 GitHub Pages 直接发布原文件，不经过 Jekyll 处理
+_config.yml           GitHub Pages 设置：TODO.md、README.md 等文件不会发布到网站上
 .github/workflows/    自动检查
 ```
 
