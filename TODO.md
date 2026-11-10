@@ -16,7 +16,6 @@ This file is listed under `exclude` in `_config.yml`, so it is not published.
 |---|---|---|
 | `rigo-challenge` | Challenge | [WRITE: the hardest problem you hit on Rigo] |
 | `rigo-learned` | What I learned | [WRITE: what you learned building and testing Rigo] |
-| `rigo-github` | Links | [ADD: Rigo GitHub repo URL, if public] (in `href`) |
 
 ## B · Glazunov Saxophone Concerto / performance (`#performance`)
 
@@ -25,8 +24,6 @@ This file is listed under `exclude` in `_config.yml`, so it is not published.
 | `glazunov-why` | Why I started it | [WRITE: why you chose the Glazunov concerto] |
 | `glazunov-challenge` | Challenge | [WRITE: the hardest passage or problem in preparing it] |
 | `glazunov-learned` | What I learned | [WRITE: what you learned preparing and performing it] |
-| `glazunov-now` | Where it is now | [WRITE: where your playing is now] |
-| `ferling-video` | Media, third video | [ADD: Ferling Etude No. 9 YouTube URL] (in `data-src`) |
 
 Photos that appear on their own once the file is in `images/` (no data-todo):
 `images/kovalev.jpg` (under Training) and `images/iu-program-2025.png` (Media).
@@ -38,9 +35,6 @@ Photos that appear on their own once the file is in `images/` (no data-todo):
 | `quartet-why` | Why I started it | [WRITE: why you founded the Paly quartet] |
 | `quartet-challenge` | Challenge | [WRITE: the hardest part of running the quartet] |
 | `quartet-learned` | What I learned | [WRITE: what you learned founding and playing in quartets] |
-| `quartet-performances` | Where it is now | [WRITE: performances given; who runs the Paly quartet now] |
-| `quartet-video` | Media | [ADD: Palo Alto High School Saxophone Quartet YouTube URL] (in `data-src`) |
-| `kairos-video` | Media | [ADD: Kairos Quartet YouTube URL] (in `data-src`) |
 
 ## D · Boundarie.org (`#boundarie`)
 
@@ -49,7 +43,6 @@ Photos that appear on their own once the file is in `images/` (no data-todo):
 | `boundarie-why` | Why I started it | [WRITE: why you took on media for Boundarie.org] |
 | `boundarie-challenge` | Challenge | [WRITE: the hardest part of the media work] |
 | `boundarie-learned` | What I learned | [WRITE: what you learned from the engagement data] |
-| `boundarie-instagram` | Links | [ADD: Instagram URL of the account you produce for] (in `href`) |
 
 ## E · Playing for the community (`#service`)
 
@@ -74,8 +67,6 @@ The whole card stays hidden until at least one field below is filled.
 
 | id | Where | Question |
 |---|---|---|
-| `code-repo-1` | Links | [ADD: GitHub repo URL 1] (in `href`) and [ADD: repo name 1] |
-| `code-repo-2` | Links | [ADD: GitHub repo URL 2] (in `href`) and [ADD: repo name 2] |
 
 ## Next · What I want to build (`#next`)
 
@@ -92,7 +83,6 @@ The "Notes" heading shows once any note is filled.
 
 | id | Where | Question |
 |---|---|---|
-| `contact-github` | Contact grid | [ADD: GitHub profile URL] (in `href`) and [ADD: GitHub username] |
 
 ## Other switches and files
 
