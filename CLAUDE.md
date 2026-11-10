@@ -10,6 +10,11 @@
 - Commit author and committer must be Jack: `Jack Jiang <Jackatstage@gmail.com>`. Never commit as Claude, so Claude is never listed as a contributor.
 - A `Co-authored-by: Claude` line in the commit message is fine.
 
+## Answers
+
+- Verify facts against official documentation or real data before answering. Quote or cite the source.
+- State conclusions plainly. Never present a guess ("probably", "most likely") as an explanation; if something can't be verified, say exactly what is unknown and how to find out.
+
 ## This site
 
 - Plain static site: `index.html` plus `images/`, published by GitHub Pages from `main`.
