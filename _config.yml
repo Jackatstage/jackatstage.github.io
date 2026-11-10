@@ -1,5 +1,6 @@
 # Kept in the repo, not published on the site
 exclude:
   - README.md
+  - CLAUDE.md
   - package.json
   - package-lock.json
