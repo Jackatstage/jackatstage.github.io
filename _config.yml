@@ -1,6 +1,5 @@
 # Kept in the repo, not published on the site
 exclude:
-  - TODO.md
   - README.md
   - package.json
   - package-lock.json

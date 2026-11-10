@@ -1,7 +1,5 @@
 <!doctype html>
 <!-- Plain HTML: works the same on GitHub Pages and on any local static server.
-     Unfinished fields are elements with a data-todo attribute (see TODO.md): they stay in
-     the HTML but are hidden by CSS. Write the text, delete data-todo="...", and it shows.
      Optional photos (data-optional) appear on their own once the file exists in images/. -->
 <html lang="en">
 <head>
@@ -68,16 +66,8 @@
   h1, h2, h3 { font-family: var(--display); margin: 0; }
   p, ul, ol, dl, dd, figure { margin: 0; }
 
-  /* Unfinished fields (TODO.md): kept in the HTML, hidden on the page.
-     Delete data-todo="..." from an element and it shows; a heading shows once anything under it does. */
-  [data-todo], [hidden] { display: none !important; }
+  [hidden] { display: none !important; }
   [data-optional]:not(.ok) { display: none !important; }
-  .field:has(> dd > [data-todo]):not(:has(> dd > :not([data-todo]))) { display: none; }
-  .group:not(:has(> :not([data-todo]))) { display: none; }
-  .card.todo-card:not(:has(dd > :not([data-todo]))) { display: none; }
-  #next:not(:has(.next-lede:not([data-todo]), .notes li:not([data-todo]))) { display: none; }
-  body:not(:has(#next .next-lede:not([data-todo]), #next .notes li:not([data-todo]))) .nav-next { display: none; }
-  .notes-block:not(:has(.notes li:not([data-todo]))) { display: none; }
 
   .skip { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #16171B; padding: 8px 16px; z-index: 10; }
   .skip:focus { left: 16px; top: 16px; }
@@ -415,12 +405,6 @@
               </ul>
               <p>One bug my test calls caught: I spoke Cantonese, and it replied in English. Every line I checked started in English, and the bot replies in whatever language the session is set to, so until the session switched, it stayed in English. I made every line listen with Deepgram's multi-language mode from the first word, switch to Chinese on any Chinese text while making it harder to flip back to English, then retested with real audio in all four languages.</p>
             </dd></div>
-            <div class="field"><dt class="mono sm">Challenge</dt><dd>
-              <p data-todo="rigo-challenge">[WRITE: the hardest problem you hit on Rigo]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">What I learned</dt><dd>
-              <p data-todo="rigo-learned">[WRITE: what you learned building and testing Rigo]</p>
-            </dd></div>
             <div class="field"><dt class="mono sm">Where it is now</dt><dd>
               <p>In trial with one pet store; three more businesses have asked to try it.</p>
             </dd></div>
@@ -497,21 +481,12 @@
             <p class="role">Performance · Glazunov, Concerto in E-flat major, Op. 109</p>
           </div>
           <dl class="fields">
-            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
-              <p data-todo="glazunov-why">[WRITE: why you chose the Glazunov concerto]</p>
-            </dd></div>
             <div class="field"><dt class="mono sm">What I did</dt><dd>
               <ul class="bullets">
                 <li>Palo Alto High School Concerto, saxophone first chair</li>
                 <li>First chair saxophone, Paly Honor Wind Ensemble</li>
                 <li>University of Illinois School of Music merit scholarship, awarded on my classical saxophone audition: $8,000 per year, renewable, up to $32,000 over four years</li>
               </ul>
-            </dd></div>
-            <div class="field"><dt class="mono sm">Challenge</dt><dd>
-              <p data-todo="glazunov-challenge">[WRITE: the hardest passage or problem in preparing it]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">What I learned</dt><dd>
-              <p data-todo="glazunov-learned">[WRITE: what you learned preparing and performing it]</p>
             </dd></div>
             <div class="field"><dt class="mono sm">Where it is now</dt><dd>
               <p>Now studying with Dr. Nicki Roman at the University of Illinois School of Music, on a merit scholarship awarded on my classical saxophone audition.</p>
@@ -573,18 +548,9 @@
           </div>
           <p>I lead media for a nonprofit that helps students pursue their dream universities.</p>
           <dl class="fields">
-            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
-              <p data-todo="boundarie-why">[WRITE: why you took on media for Boundarie.org]</p>
-            </dd></div>
             <div class="field"><dt class="mono sm">What I did</dt><dd>
               <p>Led the media creation, with original music, for videos posted on TikTok.</p>
               <p>Content creation, outreach campaigns across social platforms, and reading the engagement data to grow reach.</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">Challenge</dt><dd>
-              <p data-todo="boundarie-challenge">[WRITE: the hardest part of the media work]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">What I learned</dt><dd>
-              <p data-todo="boundarie-learned">[WRITE: what you learned from the engagement data]</p>
             </dd></div>
             <div class="field"><dt class="mono sm">Where it is now</dt><dd>
               <p>15.5K followers and 3 million likes on the TikTok account by October 2026.</p>
@@ -625,18 +591,9 @@
             <p class="role">Section Leader, Paly Wind Ensemble, 2025–2026</p>
           </div>
           <dl class="fields">
-            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
-              <p data-todo="quartet-why">[WRITE: why you founded the Paly quartet]</p>
-            </dd></div>
             <div class="field"><dt class="mono sm">What I did</dt><dd>
               <p><strong>Paly Saxophone Quartet.</strong> Founded and organized the group: chose the repertoire, including Patachich's Quartetto per Sassofoni and Tchaikovsky's Andante Cantabile, coordinated rehearsals and set up community performances.</p>
               <p><strong>Section Leader, Paly Wind Ensemble.</strong> Coached the players in my section on technique and musicianship, 2025–2026.</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">Challenge</dt><dd>
-              <p data-todo="quartet-challenge">[WRITE: the hardest part of running the quartet]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">What I learned</dt><dd>
-              <p data-todo="quartet-learned">[WRITE: what you learned founding and playing in quartets]</p>
             </dd></div>
             <div class="field"><dt class="mono sm">Where it is now</dt><dd>
               <p>Now a member of the Kairos Quartet at the University of Illinois School of Music, with a studio performance on October 27, 2026.</p>
@@ -680,34 +637,9 @@
             <li><b>Notes For All · Harmony Ensemble</b><span class="d">Solo, duet and trio performances for two music nonprofits</span></li>
             -->
           </ul>
-          <p class="small-note" data-todo="service-hours">Several hundred hours of volunteer service in all [CONFIRM: exact total].</p>
         </article>
 
         <!-- G) Discord server: all fields still to write, so the whole card is hidden -->
-        <article class="card todo-card" id="discord" aria-labelledby="p-discord">
-          <div class="card-top"><span class="letter" aria-hidden="true"></span><span class="mono sm muted">Community · Discord</span></div>
-          <div class="card-title">
-            <h3 id="p-discord">Discord server</h3>
-            <p class="role" data-todo="discord-role">[WRITE: your role · dates]</p>
-          </div>
-          <dl class="fields">
-            <div class="field"><dt class="mono sm">Why I started it</dt><dd>
-              <p data-todo="discord-purpose">[WRITE: what the server is for, and why you started it]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">What I did</dt><dd>
-              <p data-todo="discord-did">[WRITE: what you did: set-up, moderation, bots, events]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">Challenge</dt><dd>
-              <p data-todo="discord-challenge">[WRITE: the hardest part of running it]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">What I learned</dt><dd>
-              <p data-todo="discord-learned">[WRITE: what you learned running it]</p>
-            </dd></div>
-            <div class="field"><dt class="mono sm">Where it is now</dt><dd>
-              <p data-todo="discord-members">[WRITE: number of members]</p>
-            </dd></div>
-          </dl>
-        </article>
       </div>
     </div>
   </section>
@@ -721,14 +653,6 @@
       </div>
       <div class="main" style="gap:32px">
         <p class="next-lede">I want to use AI to make AI cheaper and faster, starting with Rigo's call latency and cost. I also want to automate onboarding: when a new business signs up through the form, Rigo's service opens for them automatically.</p>
-        <div class="card-title notes-block" style="gap:12px">
-          <span class="mono sm" style="color:var(--band-muted)">Notes</span>
-          <ol class="questions notes">
-            <li data-todo="note-1"><span class="mono" aria-hidden="true">i</span><span>[WRITE: what practicing saxophone has in common with testing software]</span></li>
-            <li data-todo="note-2"><span class="mono" aria-hidden="true">ii</span><span>[WRITE: what a merchant taught you about building AI]</span></li>
-            <li data-todo="note-3"><span class="mono" aria-hidden="true">iii</span><span>[WRITE: optional]</span></li>
-          </ol>
-        </div>
       </div>
     </div>
   </section>
@@ -928,7 +852,7 @@
       btn.disabled = true;
       return;
     }
-    if (box.hasAttribute("data-autoplay") && !calm && !box.closest("[data-todo]")) {
+    if (box.hasAttribute("data-autoplay") && !calm) {
       loadVideo(box, id, true, false);
       return;
     }

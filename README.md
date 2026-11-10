@@ -25,8 +25,7 @@ npm run dev      # start a local server at http://localhost:3000 that reloads on
 ```
 index.html            The whole site (HTML, CSS and JS in one file)
 images/               Photos and other images
-TODO.md               Sections still to write (not published)
-_config.yml           GitHub Pages settings: keeps TODO.md, README.md, etc. off the site
+_config.yml           GitHub Pages settings: keeps README.md and package files off the site
 .github/workflows/    Automatic checks
 ```
 
