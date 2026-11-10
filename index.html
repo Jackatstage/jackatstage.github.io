@@ -402,7 +402,7 @@
           <p class="card-lede">An AI that answers a local business's phone in English, Mandarin, Cantonese and Spanish, takes reservations and orders, and texts every booking to the guest and the shop. It's live with trial customers now.</p>
           <dl class="fields">
             <div class="field"><dt class="mono sm">Why I started it</dt><dd>
-              <p data-todo="rigo-why">[WRITE: what made you want in — the problem you saw for small shops]</p>
+              <p>As a college student, I order food all the time, and about 1 in 5 of those orders is takeout. Some shops take orders by phone only, with one person answering at a time: a single-server queue with finite capacity. I started out building for restaurants, but I realized most of them already have stable platforms like DoorDash and Uber Eats. So I switched my objective to shops that need reservations in general.</p>
             </dd></div>
             <div class="field"><dt class="mono sm">What I did</dt><dd>
               <ul>
@@ -413,7 +413,7 @@
                 <li><strong>New customer intake form.</strong> Built the application form new businesses use to sign up.</li>
                 <li>Tested and debugged the platform. At first I reported issues to the development team; now I fix them myself.</li>
               </ul>
-              <p data-todo="rigo-bug">[WRITE: one bug your L3 tests caught and how you fixed it]</p>
+              <p>One bug my test calls caught: I spoke Cantonese, and it replied in English. Every line I checked started in English, and the bot replies in whatever language the session is set to, so until the session switched, it stayed in English. I made every line listen with Deepgram's multi-language mode from the first word, switch to Chinese on any Chinese text while making it harder to flip back to English, then retested with real audio in all four languages.</p>
             </dd></div>
             <div class="field"><dt class="mono sm">Challenge</dt><dd>
               <p data-todo="rigo-challenge">[WRITE: the hardest problem you hit on Rigo]</p>
@@ -746,7 +746,7 @@
         <h2 id="next-title">What I want to build</h2>
       </div>
       <div class="main" style="gap:32px">
-        <p class="next-lede" data-todo="next-build">[WRITE: 2–3 sentences, the same idea as your video]</p>
+        <p class="next-lede">I want to use AI to make AI cheaper and faster, starting with Rigo's call latency and cost. I also want to automate onboarding: when a new business signs up through the form, Rigo's service opens for them automatically.</p>
         <div class="card-title notes-block" style="gap:12px">
           <span class="mono sm" style="color:var(--band-muted)">Notes</span>
           <ol class="questions notes">

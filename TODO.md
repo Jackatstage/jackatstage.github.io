@@ -14,8 +14,6 @@ This file is listed under `exclude` in `_config.yml`, so it is not published.
 
 | id | Where | Question |
 |---|---|---|
-| `rigo-why` | Why I started it | [WRITE: what made you want in — the problem you saw for small shops] |
-| `rigo-bug` | What I did, below the list | [WRITE: one bug your L3 tests caught and how you fixed it] |
 | `rigo-challenge` | Challenge | [WRITE: the hardest problem you hit on Rigo] |
 | `rigo-learned` | What I learned | [WRITE: what you learned building and testing Rigo] |
 | `rigo-github` | Links | [ADD: Rigo GitHub repo URL, if public] (in `href`) |
@@ -86,7 +84,6 @@ The "Notes" heading shows once any note is filled.
 
 | id | Where | Question |
 |---|---|---|
-| `next-build` | Main text | [WRITE: 2–3 sentences, the same idea as your video] |
 | `note-1` | Notes, i | [WRITE: what practicing saxophone has in common with testing software] |
 | `note-2` | Notes, ii | [WRITE: what a merchant taught you about building AI] |
 | `note-3` | Notes, iii | [WRITE: optional] |
